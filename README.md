@@ -12,10 +12,16 @@ Também é possível executar `py -3 scripts/serve_gallery.py` na raiz. Consulte
 
 - Arquitetura por personagem aplicada em 12/11/2026, com catálogo e guias operacionais.
 - Primeiro personagem gerado e em avaliação (review): chr_001_anime_espadachim.
-- Versões v001 e v002 preservadas. Atual: v002 sem remesh, textura 4K e closes de avaliação no Blender 5.2. Consumo acumulado confirmado: 60 créditos; saldo consultado: 1.130.
+- Versões v001/v002 preservadas e reprovadas pelo usuário. Novas alternativas: v003 (8K PBR) e v004 (N1), com quatro vistas e geometria Ultra sem normalização de pose. Em avaliação. Consumo acumulado: 135 créditos; saldo final consultado: 1.055.
 - Plataforma planejada: Meshy.
-- Modelo de geração inicialmente escolhido: Meshy 7, sujeito à disponibilidade e ao custo exibido na ferramenta utilizada.
+- Seleção atual para máxima fidelidade geométrica: Meshy 7.1, Ultra 2K multivista e sem remesh; reavaliar modelos por tarefa.
 - Estratégia: validar um personagem anime, completar um piloto de seis estilos e então ampliar a coleção.
+
+## Prioridade de qualidade
+
+Diretriz do usuário em 2026-11-12: priorizar qualidade visual independentemente do consumo de créditos Meshy. Usar quatro vistas consistentes por personagem — frente, perfil esquerdo, costas e perfil direito — e selecionar os melhores modelos e estratégias atuais para a tarefa. Não reduzir resolução, geometria ou número de vistas para economizar. Preservar uma malha detalhada; otimização para jogo fica em uma versão separada após a avaliação.
+
+O prompt deve ser preservado e enviado onde a API permitir. Geometria Multi-Image não aceita prompt textual de forma; referências de textura multivista e prompt são mutuamente exclusivos no endpoint consultado. Não enviar parâmetros ignorados nem afirmar que um prompt guiou uma etapa que não o aceita.
 
 ## Plano da coleção
 
@@ -70,14 +76,14 @@ Pastas vazias são preservadas por arquivos .gitkeep. A organização é por per
 
 Usar characters/<id>/, com estas subpastas conforme forem necessárias:
 
-- references/: imagens de frente, perfil e costas em arquivos separados.
+- references/: quatro imagens: frente, perfil esquerdo, costas e perfil direito, em arquivos separados.
 - prompts/: texto exato dos prompts e instruções utilizados.
 - source/attempt_001/: downloads originais de uma tentativa, preservados sem alteração.
 - working/: arquivos editáveis e versões de trabalho.
 - exports/v001/: uma versão destinada aos projetos de uso, com texturas e dependências.
 - previews/: capturas e imagens para avaliação.
 
-Cada personagem tem README.md e metadata.json próprios. O primeiro cadastro está em [characters/chr_001_anime_espadachim/README.md](characters/chr_001_anime_espadachim/README.md), com modelo GLB e prévias; as três referências originais estão salvas na pasta references/ do personagem. As pastas de tentativas e versões são criadas quando houver trabalho correspondente.
+Cada personagem tem README.md e metadata.json próprios. O primeiro cadastro está em [characters/chr_001_anime_espadachim/README.md](characters/chr_001_anime_espadachim/README.md), com modelo GLB e prévias; as referências usadas em todas as tentativas estão preservadas; o conjunto atual contém quatro vistas. As pastas de tentativas e versões são criadas quando houver trabalho correspondente.
 
 ## Convenções
 
@@ -92,8 +98,8 @@ Cada personagem tem README.md e metadata.json próprios. O primeiro cadastro est
 
 1. Definir conceito, estilo, finalidade e complexidade do personagem.
 2. Preparar uma referência frontal limpa: corpo inteiro, personagem centralizado, iluminação neutra e margem ao redor do corpo.
-3. Preparar vistas complementares consistentes quando forem úteis. Conferir roupa, cabelo, proporções e pose entre frente, perfil e costas. Uma boa imagem única é preferível a várias imagens contraditórias.
-4. Confirmar ferramenta, modelo, recursos disponíveis e custo. Para o piloto, preferir Meshy 7 com Multi-View quando as referências estiverem adequadas e o recurso estiver disponível.
+3. Preparar quatro vistas consistentes: frente, perfil esquerdo, costas e perfil direito. Conferir roupa, cabelo, proporções, mãos e pose. Corrigir divergências antes da geração.
+4. Confirmar os melhores modelos e recursos atuais para qualidade, sem escolher configurações inferiores para economizar. Registrar o custo e os parâmetros reais.
 5. Gerar a geometria, separando a textura em uma etapa posterior quando a ferramenta permitir. Registrar o ID da tarefa antes de acompanhar o processamento.
 6. Inspecionar silhueta, rosto, mãos, pés, costas e separação dos membros. Texturizar as versões aprovadas quando houver separação de etapas.
 7. Avaliar topologia, materiais e necessidade de remesh. Pose A ou T ajuda na preparação, mas não garante uma malha adequada à animação.

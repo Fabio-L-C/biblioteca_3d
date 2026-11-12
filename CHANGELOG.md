@@ -4,6 +4,19 @@ Histórico de alterações relevantes na estrutura, documentação e coleção d
 
 ## [Unreleased]
 
+### Prioridade de qualidade
+
+- Comparação attempt_003/004: retirar pose_mode resultou em mãos abertas e cinco dedos separados nesta geração; hipótese de interferência da normalização registrada sem atribuição causal definitiva.
+- Duas alternativas preservadas: v003 com textura Meshy 7 8K PBR e v004 com N1. Detalhe versus limpeza de cor comparados em close.
+- Consumo adicional da rodada: 75 créditos; acumulado: 135. Saldo final: 1.055, sendo 615 mensais e 440 permanentes.
+- Galeria com alternativa preferencial explícita e especificações por arquivo/versão, incluindo geometria sem textura.
+
+- Diretriz do usuário incorporada ao AGENTS.md, README.md e fluxo: quatro vistas e melhores modelos/estratégias para qualidade, sem priorizar economia de créditos.
+- v002 reprovada pelo usuário; quatro referências novas geradas, salvas e revisadas, incluindo correção da rotação da mão no perfil direito.
+- Integração MCP 0.6.11 preparada para acesso aos modelos atuais e resolução Ultra; configuração global e chave existentes preservadas.
+- Tentativa 003: geometria Meshy 7.1 Ultra 2K com quatro imagens, sem remesh; custo confirmado de 25 créditos.
+- Galeria ajustada para quatro referências com rótulos de ambos os perfis.
+
 ### Segunda tentativa
 
 - Três novas referências salvas com olhos e orelhas expostos e volumes em estilo anime 3D. Prompts preservados.

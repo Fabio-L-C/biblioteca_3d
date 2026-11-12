@@ -35,7 +35,11 @@ Leia README.md e CHANGELOG.md antes de modificar o projeto. Leia também a ficha
 - Coleção inicial de personagens fictícios adultos em anime, semi-realista, realista, low poly, cartoon e chibi.
 - Meta inicial: quatro personagens por estilo, totalizando 24, sujeita ao orçamento e à avaliação do piloto.
 - Primeiro teste: personagem anime adulto. Depois, completar o piloto de seis estilos.
-- Preferência inicial: Meshy 7 com Multi-View quando disponível e adequado às referências.
+- Prioridade definida pelo usuário: qualidade visual acima da economia de créditos. Selecionar os melhores modelos atuais de geometria e textura para a tarefa, verificando documentação e recursos disponíveis. Modelos e estratégias podem mudar para melhorar qualidade dentro do trabalho autorizado.
+- Usar quatro imagens de referência por personagem: frente, perfil esquerdo, costas e perfil direito. As vistas devem ser consistentes e salvas individualmente.
+- Não reduzir qualidade, resolução, número de vistas ou geometria para economizar créditos. Custos continuam registrados, sem comprar créditos ou renovar planos automaticamente.
+- Preservar a malha detalhada; otimização para jogos somente em versão separada e depois da validação visual.
+- Sempre que a API aceitar a combinação, enviar as quatro vistas e o prompt. Respeitar campos mutuamente exclusivos: não afirmar que o prompt guiou uma etapa que só aceita imagens.
 - Pose A ou T, corpo inteiro e mãos visíveis; evitar objetos nas mãos no piloto. Acessórios complexos podem ser tratados separadamente.
 - Estas são diretrizes de produção, não autorização para iniciar todas as gerações de uma vez.
 
@@ -44,7 +48,7 @@ Leia README.md e CHANGELOG.md antes de modificar o projeto. Leia também a ficha
 - Antes de executar, verifique se a ferramenta realmente está disponível e conectada. Não afirme conexão, saldo ou conclusão sem evidência.
 - Prefira ferramentas conectadas quando oferecerem as operações necessárias.
 - Confirme o identificador do modelo, a compatibilidade do fluxo e o custo na ferramenta efetivamente usada. Site, API e MCP podem diferir.
-- Não troque silenciosamente de modelo se Meshy 7 estiver indisponível. Registre a limitação e obtenha a decisão necessária para uma mudança material no plano.
+- Registrar o motivo da escolha do modelo e os parâmetros de qualidade. A escolha dos melhores modelos e estratégias já está autorizada pelo usuário; não solicitar confirmação repetida por causa do custo de uma tentativa pertinente.
 - Execute tarefas pagas dentro da autorização e do orçamento já dados pelo usuário, sem pedir confirmação repetida para a mesma ação autorizada.
 - Não compre créditos, renove assinatura ou inicie lotes adicionais fora do escopo autorizado.
 - O saldo de 1.190 créditos e o fim do plano em 24/12/2026 foram informados pelo usuário em 12/11/2026; não são uma consulta atual da conta.
@@ -56,9 +60,10 @@ Leia README.md e CHANGELOG.md antes de modificar o projeto. Leia também a ficha
 ## Referências e geração
 
 - Verifique identidade, roupa, cabelo, escala, iluminação e pose entre as vistas.
-- Use uma única imagem clara quando as vistas adicionais forem contraditórias.
+- Se as quatro vistas forem contraditórias, corrigir ou regenerar as referências antes de enviar ao Meshy. Não substituir o conjunto por uma imagem única como estratégia de economia.
 - Se gerar vistas complementares, revise-as antes da conversão para 3D.
 - Quando a ferramenta permitir, avalie a geometria antes de gastar com textura.
+- Se as quatro referências já estiverem em pose adequada, preservar a pose original sem normalização automática por padrão; comparar quando necessário. A comparação attempt_003/004 indicou melhor separação dos dedos sem pose_mode, sem estabelecer causalidade definitiva.
 - Não prometa topologia adequada à animação, rig funcional ou qualidade de produção só porque a geração terminou.
 
 ## Validação e rastreabilidade

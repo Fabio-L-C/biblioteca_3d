@@ -3,7 +3,7 @@ const $ = id => document.getElementById(id);
 const state = {items: [], selected: null, variants: [], variant: null, libraryReady: false};
 const statusNames = {planned:'Planejado',references_ready:'Referências prontas',generating:'Em geração',review:'Em avaliação',approved:'Aprovado',needs_work:'Precisa de ajustes',archived:'Arquivado'};
 const styleNames = {anime:'Anime',semi_realistic:'Semi-realista','semi-realista':'Semi-realista',realistic:'Realista',realista:'Realista',low_poly:'Low poly',cartoon:'Cartoon',chibi:'Chibi'};
-const labels = {front:'Frente',left_profile:'Perfil esquerdo',back:'Costas'};
+const labels = {front:'Frente',left_profile:'Perfil esquerdo',back:'Costas',right_profile:'Perfil direito'};
 const viewer = $('viewer');
 const number = n => typeof n === 'number' ? n.toLocaleString('pt-BR') : 'Não informado';
 const el = (tag, cls, text) => { const node = document.createElement(tag); if(cls) node.className=cls; if(text!==undefined) node.textContent=text; return node; };
@@ -21,10 +21,10 @@ function message(text, {busy=false,retry=false}={}) {
 }
 function getVariants(meta) {
   const result=[];
-  for(const exp of [...(meta.files?.exports||[])].sort((a,b)=>String(b.version).localeCompare(String(a.version),undefined,{numeric:true}))) {
-    for(const path of exp.paths||[]) if(/\.(glb|gltf)$/i.test(path)) result.push({path,attempt:exp.source_attempt,label:exp.version+' · '+(meta.status==='approved'?'Aprovado':'Para avaliação')});
+  for(const exp of [...(meta.files?.exports||[])].sort((a,b)=>Number(b.version===meta.preferred_export)-Number(a.version===meta.preferred_export)||String(b.version).localeCompare(String(a.version),undefined,{numeric:true}))) {
+    for(const path of exp.paths||[]) if(/\.(glb|gltf)$/i.test(path)) result.push({path,attempt:exp.source_attempt,technical:exp.technical,label:exp.label||exp.version+' · '+(meta.status==='approved'?'Aprovado':'Para avaliação')});
   }
-  for(const path of meta.files?.source||[]) if(/\.glb$/i.test(path)) result.push({path,attempt:path.match(/source\/(attempt_\d+)/)?.[1],label:(/geometry/i.test(path)?'Geometria original':'Textura original')+' · '+(path.match(/attempt_\d+/)?.[0]||'')});
+  for(const path of meta.files?.source||[]) if(/\.glb$/i.test(path)) result.push({path,technical:meta.file_technical?.[path],attempt:path.match(/source\/(attempt_\d+)/)?.[1],label:(/geometry/i.test(path)?'Geometria original':/textured_n1/i.test(path)?'Comparação N1':'Textura original')+' · '+(path.match(/attempt_\d+/)?.[0]||'')});
   return result;
 }
 function preview(item) {
@@ -85,6 +85,7 @@ function select(item) {
   renderSpecs(meta);
   const references=(meta.files?.references||[]).filter(p=>/\.(png|jpe?g|webp)$/i.test(p));
   $('reference-count').textContent=references.length;
+  $('references').classList.toggle('four-views',references.length===4);
   if(!references.length) $('references').append(el('p','muted','Referências ainda não disponíveis.'));
   for(const path of references) {
     const src=asset(item.path,path); if(!src)continue;
@@ -104,7 +105,7 @@ function loadVariant(index) {
   const variant=state.variants[index];if(!variant||!state.selected)return;
   state.variant=variant;const url=asset(state.selected.path,variant.path);
   const attempt=state.selected.meta.attempts?.find(a=>a.id===variant.attempt);
-  renderSpecs({...state.selected.meta,technical:attempt?.technical||state.selected.meta.technical});
+  renderSpecs({...state.selected.meta,technical:variant.technical||attempt?.technical||state.selected.meta.technical});
   const poster=preview(state.selected);if(poster)viewer.poster=poster;else viewer.removeAttribute('poster');
   viewer.cameraOrbit='0deg 82deg 105%';viewer.cameraTarget='auto auto auto';
   viewer.removeAttribute('auto-rotate');$('rotate').setAttribute('aria-pressed','false');

@@ -9,8 +9,8 @@
   "created_at": "2026-11-12",
   "updated_at": "2026-11-12",
   "provider": "Meshy",
-  "interface": "local MCP 0.5.2",
-  "model": "meshy-7",
+  "interface": "local MCP 0.6.11",
+  "model": "meshy-7.1",
   "planned_generation": {
     "provider": "Meshy",
     "model": "Meshy 7",
@@ -195,19 +195,194 @@
       },
       "balance_after_geometry": 1140,
       "balance_after": 1130
+    },
+    {
+      "id": "attempt_003",
+      "created_at": "2026-11-12T18:35:27.771Z",
+      "provider": "Meshy",
+      "interface": "local MCP 0.6.11",
+      "model": "meshy-7.1",
+      "method": "multi_view",
+      "parameters": {
+        "ai_model": "meshy-7.1",
+        "geometry_resolution": "2k",
+        "pose_mode": "a-pose",
+        "should_remesh": false,
+        "should_texture": false,
+        "image_enhancement": false,
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "response_format": "json"
+      },
+      "prompt_files": [
+        "prompts/front_v003.txt",
+        "prompts/left_profile_v004.txt",
+        "prompts/back_v003.txt",
+        "prompts/right_profile_v001.txt",
+        "prompts/right_profile_v001_correction.txt",
+        "prompts/meshy_quality_v003.txt"
+      ],
+      "reference_files": [
+        "references/front_v003.png",
+        "references/left_profile_v004.png",
+        "references/back_v003.png",
+        "references/right_profile_v001.png"
+      ],
+      "status": "SUCCEEDED",
+      "operations": [
+        {
+          "type": "multi-image-to-3d",
+          "task_id": "01a1d10b-1b24-715d-9694-262be78be531",
+          "status": "SUCCEEDED",
+          "estimated_credits": 25,
+          "actual_credits": 25
+        }
+      ],
+      "output_files": [
+        "source/attempt_003/geometry.glb"
+      ],
+      "review_notes": [
+        "Quatro vistas novas revisadas. Orientação da mão no perfil direito corrigida antes de envio. Ultra 2K é resolução de geometria; textura será uma etapa separada. API não oferece prompt textual para geometria multivista; especificação preservada, não enviada como parâmetro fictício.",
+        "Inspeção de geometria: rosto e orelhas mais definidos, mas dedos fundidos. Textura não iniciada. Comparação controlada seguinte retira pose_mode para testar preservação da pose das referências."
+      ],
+      "balance_before": 1130,
+      "technical": {
+        "geometry_polygon_count": 438922,
+        "polygon_count": 438922,
+        "topology": "triangle",
+        "rig": false
+      }
+    },
+    {
+      "id": "attempt_004",
+      "created_at": "2026-11-12T18:39:36.400Z",
+      "provider": "Meshy",
+      "interface": "local MCP 0.6.11",
+      "model": "meshy-7.1",
+      "method": "multi_view",
+      "parameters": {
+        "ai_model": "meshy-7.1",
+        "geometry_resolution": "2k",
+        "should_remesh": false,
+        "should_texture": false,
+        "image_enhancement": false,
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "response_format": "json"
+      },
+      "prompt_files": [
+        "prompts/front_v003.txt",
+        "prompts/left_profile_v004.txt",
+        "prompts/back_v003.txt",
+        "prompts/right_profile_v001.txt",
+        "prompts/right_profile_v001_correction.txt",
+        "prompts/meshy_quality_v003.txt"
+      ],
+      "reference_files": [
+        "references/front_v003.png",
+        "references/left_profile_v004.png",
+        "references/back_v003.png",
+        "references/right_profile_v001.png"
+      ],
+      "status": "SUCCEEDED",
+      "operations": [
+        {
+          "type": "multi-image-to-3d",
+          "task_id": "01a1d10e-e646-7689-8dab-c3a4d863b7e4",
+          "status": "SUCCEEDED",
+          "estimated_credits": 25,
+          "actual_credits": 25
+        },
+        {
+          "type": "retexture",
+          "task_id": "01a1d110-c55d-76c9-97e6-c1534baf842e",
+          "status": "SUCCEEDED",
+          "estimated_credits": 15,
+          "actual_credits": 15,
+          "parameters": {
+            "input_task_id": "01a1d10e-e646-7689-8dab-c3a4d863b7e4",
+            "ai_model": "meshy-7",
+            "enable_original_uv": true,
+            "enable_pbr": true,
+            "texture_resolution": "8k",
+            "target_formats": [
+              "glb"
+            ],
+            "response_format": "json"
+          },
+          "notes": "Quatro referências multivista; nenhum prompt textual na mesma requisição porque entradas são mutuamente exclusivas."
+        },
+        {
+          "type": "retexture",
+          "task_id": "01a1d114-742f-75dc-abd0-1e4eef179b54",
+          "status": "SUCCEEDED",
+          "estimated_credits": 10,
+          "actual_credits": 10,
+          "parameters": {
+            "input_task_id": "01a1d10e-e646-7689-8dab-c3a4d863b7e4",
+            "ai_model": "meshy-n1",
+            "enable_original_uv": true,
+            "enable_pbr": false,
+            "texture_resolution": "2k",
+            "target_formats": [
+              "glb"
+            ],
+            "response_format": "json"
+          },
+          "notes": "Comparação controlada de modelo de textura para personagem estilizado; N1 suporta apenas 2K e não aceita PBR ou prompt textual. Mesmas quatro vistas."
+        }
+      ],
+      "output_files": [
+        "source/attempt_004/geometry.glb",
+        "source/attempt_004/textured.glb",
+        "source/attempt_004/textured_n1.glb",
+        "source/attempt_004/textured_textures/base_color.png",
+        "source/attempt_004/textured_textures/metallic.png",
+        "source/attempt_004/textured_textures/normal.png",
+        "source/attempt_004/textured_textures/roughness.png",
+        "source/attempt_004/textured_n1_base_color.png"
+      ],
+      "review_notes": [
+        "Comparação com attempt_003: mesmas quatro vistas e Ultra 2K, removendo somente pose_mode. Objetivo: testar hipótese de alteração das mãos pela normalização de pose; causa ainda não comprovada.",
+        "Comparação visual: sem pose_mode, nova malha mantém mãos abertas e separação dos dedos, ao contrário da tentativa 003. Resultado reforça hipótese de interferência da normalização, mas a geração estocástica impede atribuição causal definitiva. Rosto e orelhas mais definidos; seguir para textura 8K com quatro vistas.",
+        "Textura Meshy 7 8K: olhos e orelhas legíveis, mas irregularidades na região das sobrancelhas e no encontro cabelo/pele. Comparar N1 na mesma geometria para avaliar limpeza de cor e costuras, sem escolher somente pela resolução.",
+        "Quatro vistas e Ultra 2K sem pose_mode preservaram mão aberta e cinco dedos separados na inspeção. Comparação de textura: Meshy 7 8K PBR tem olhos/materiais mais detalhados, mas irregularidades nas sobrancelhas e cabelo/pele; N1 tem cor mais limpa e menos costuras, porém olhos suavizados. Ambas preservadas para avaliação; nenhuma aprovada pelo usuário, sem rig/deformação ou otimização para jogo."
+      ],
+      "technical": {
+        "polygon_count": 499754,
+        "topology": "triangle",
+        "texture_resolution": "8192x8192 cor; 4096x4096 PBR (verificado)",
+        "texture_model": "meshy-7",
+        "pose": "A das referências; sem normalização",
+        "rig": false,
+        "scale": "Não calibrada",
+        "geometry_polygon_count": 499786
+      },
+      "balance_after": 1055
     }
   ],
   "files": {
     "references": [
-      "references/front_v002.png",
-      "references/left_profile_v003.png",
-      "references/back_v002.png"
+      "references/front_v003.png",
+      "references/left_profile_v004.png",
+      "references/back_v003.png",
+      "references/right_profile_v001.png"
     ],
     "prompts": [
       "prompts/front_v001.txt",
       "prompts/front_v002.txt",
       "prompts/left_profile_v003.txt",
-      "prompts/back_v002.txt"
+      "prompts/back_v002.txt",
+      "prompts/front_v003.txt",
+      "prompts/left_profile_v004.txt",
+      "prompts/back_v003.txt",
+      "prompts/right_profile_v001.txt",
+      "prompts/right_profile_v001_correction.txt",
+      "prompts/meshy_quality_v003.txt"
     ],
     "source": [
       "source/attempt_001/geometry.glb",
@@ -215,7 +390,16 @@
       "source/attempt_001/textured_base_color.png",
       "source/attempt_002/geometry.glb",
       "source/attempt_002/textured.glb",
-      "source/attempt_002/textured_base_color.png"
+      "source/attempt_002/textured_base_color.png",
+      "source/attempt_003/geometry.glb",
+      "source/attempt_004/geometry.glb",
+      "source/attempt_004/textured.glb",
+      "source/attempt_004/textured_n1.glb",
+      "source/attempt_004/textured_textures/base_color.png",
+      "source/attempt_004/textured_textures/metallic.png",
+      "source/attempt_004/textured_textures/normal.png",
+      "source/attempt_004/textured_textures/roughness.png",
+      "source/attempt_004/textured_n1_base_color.png"
     ],
     "working": [],
     "exports": [
@@ -232,9 +416,67 @@
         "paths": [
           "exports/v002/chr_001_anime_espadachim_v002.glb"
         ]
+      },
+      {
+        "version": "v003",
+        "label": "v003 · Meshy 7 · 8K PBR",
+        "source_attempt": "attempt_004",
+        "technical": {
+          "polygon_count": 499754,
+          "topology": "triangle",
+          "texture_resolution": "8192x8192 cor; 4096x4096 PBR (verificado)",
+          "texture_model": "meshy-7",
+          "pose": "A das referências; sem normalização",
+          "rig": false,
+          "scale": "Não calibrada"
+        },
+        "paths": [
+          "exports/v003/chr_001_anime_espadachim_v003.glb"
+        ]
+      },
+      {
+        "version": "v004",
+        "label": "v004 · Meshy N1 · comparação de cor",
+        "source_attempt": "attempt_004",
+        "technical": {
+          "polygon_count": 499772,
+          "topology": "triangle",
+          "texture_resolution": "2048x2048 (PNG verificado)",
+          "texture_model": "meshy-n1",
+          "pose": "A das referências; sem normalização",
+          "rig": false,
+          "scale": "Não calibrada"
+        },
+        "paths": [
+          "exports/v004/chr_001_anime_espadachim_v004.glb"
+        ]
       }
     ],
     "previews": [
+      "previews/textured_v003_back.png",
+      "previews/textured_v003_front.png",
+      "previews/textured_v003_hand.png",
+      "previews/textured_v003_head_front.png",
+      "previews/textured_v003_head_threequarter.png",
+      "previews/textured_v003_side.png",
+      "previews/geometry_v003_back.png",
+      "previews/geometry_v003_front.png",
+      "previews/geometry_v003_hand.png",
+      "previews/geometry_v003_head_front.png",
+      "previews/geometry_v003_head_threequarter.png",
+      "previews/geometry_v003_side.png",
+      "previews/geometry_v004_back.png",
+      "previews/geometry_v004_front.png",
+      "previews/geometry_v004_hand.png",
+      "previews/geometry_v004_head_front.png",
+      "previews/geometry_v004_head_threequarter.png",
+      "previews/geometry_v004_side.png",
+      "previews/textured_n1_compare_back.png",
+      "previews/textured_n1_compare_front.png",
+      "previews/textured_n1_compare_hand.png",
+      "previews/textured_n1_compare_head_front.png",
+      "previews/textured_n1_compare_head_threequarter.png",
+      "previews/textured_n1_compare_side.png",
       "previews/geometry_v002_back.png",
       "previews/geometry_v002_front.png",
       "previews/geometry_v002_hand.png",
@@ -256,13 +498,13 @@
     ]
   },
   "technical": {
-    "polygon_count": 514009,
-    "geometry_polygon_count": 514024,
+    "polygon_count": 499754,
     "topology": "triangle",
-    "texture_resolution": "4096x4096 (PNG verificado)",
-    "pose": "A (inspeção visual)",
+    "texture_resolution": "8192x8192 cor; 4096x4096 PBR (verificado)",
+    "texture_model": "meshy-7",
+    "pose": "A das referências; sem normalização",
     "rig": false,
-    "scale": "Não calibrada; escala gerada pela plataforma"
+    "scale": "Não calibrada"
   },
   "provenance": {
     "references": [
@@ -310,7 +552,7 @@
         "view": "front",
         "local_path": "references/front_v002.png",
         "prompt_file": "prompts/front_v002.txt",
-        "status": "current",
+        "status": "previous_attempt",
         "location": "Imagem gerada nesta conversa e salva diretamente para uso na tentativa 002."
       },
       {
@@ -319,7 +561,7 @@
         "view": "left_profile",
         "local_path": "references/left_profile_v003.png",
         "prompt_file": "prompts/left_profile_v003.txt",
-        "status": "current",
+        "status": "previous_attempt",
         "location": "Imagem gerada nesta conversa e salva diretamente para uso na tentativa 002."
       },
       {
@@ -328,8 +570,40 @@
         "view": "back",
         "local_path": "references/back_v002.png",
         "prompt_file": "prompts/back_v002.txt",
-        "status": "current",
+        "status": "previous_attempt",
         "location": "Imagem gerada nesta conversa e salva diretamente para uso na tentativa 002."
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "front",
+        "local_path": "references/front_v003.png",
+        "status": "current",
+        "prompt_file": "prompts/front_v003.txt"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "left_profile",
+        "local_path": "references/left_profile_v004.png",
+        "status": "current",
+        "prompt_file": "prompts/left_profile_v004.txt"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "back",
+        "local_path": "references/back_v003.png",
+        "status": "current",
+        "prompt_file": "prompts/back_v003.txt"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "right_profile",
+        "local_path": "references/right_profile_v001.png",
+        "status": "current",
+        "prompt_file": "prompts/right_profile_v001.txt"
       }
     ],
     "generation_tool": null,
@@ -344,6 +618,57 @@
     "Três referências efetivamente usadas na geração salvas localmente, sem alteração dos PNGs: frente v001, perfil esquerdo corrigido v002 e costas v001.",
     "Avaliação do usuário: qualidade baixa, textura ruim e bloco retangular indevido junto à orelha. Resultado inadequado para aprovação. Remesh automático com alvo de 30 mil pode ter perdido detalhes, mas a causa do artefato não foi isolada. Próxima comparação deve preservar geometria sem remesh e revisar cabeça antes de texturizar.",
     "Tentativa 002: geometria sem remesh e textura 4K. No close da malha não aparece o bloco retangular da versão anterior; rosto e olhos agora expostos. Malha detalhada para avaliação; mãos ainda limitadas e sem teste de rig/deformação. Aprovação visual final pendente do usuário.",
-    "Inspeção final da textura v002 em close: bloco retangular ausente nos ângulos renderizados. Persistem manchas/contaminação azul no contorno das orelhas e dedos pouco separados. Melhor leitura do rosto, ainda sem aprovação de qualidade ou rig."
-  ]
+    "Inspeção final da textura v002 em close: bloco retangular ausente nos ângulos renderizados. Persistem manchas/contaminação azul no contorno das orelhas e dedos pouco separados. Melhor leitura do rosto, ainda sem aprovação de qualidade ou rig.",
+    "Usuário reprovou v002 e definiu quatro vistas e prioridade absoluta de qualidade sobre economia de créditos. Próxima tentativa: integração atualizada, geometria Meshy 7.1 Ultra 2K sem remesh e quatro referências consistentes; texturas escolhidas por qualidade observada.",
+    "Quatro vistas e Ultra 2K sem pose_mode preservaram mão aberta e cinco dedos separados na inspeção. Comparação de textura: Meshy 7 8K PBR tem olhos/materiais mais detalhados, mas irregularidades nas sobrancelhas e cabelo/pele; N1 tem cor mais limpa e menos costuras, porém olhos suavizados. Ambas preservadas para avaliação; nenhuma aprovada pelo usuário, sem rig/deformação ou otimização para jogo."
+  ],
+  "file_technical": {
+    "source/attempt_004/textured.glb": {
+      "polygon_count": 499754,
+      "topology": "triangle",
+      "texture_resolution": "8192x8192 cor; 4096x4096 PBR (verificado)",
+      "texture_model": "meshy-7",
+      "pose": "A das referências; sem normalização",
+      "rig": false,
+      "scale": "Não calibrada"
+    },
+    "source/attempt_004/textured_n1.glb": {
+      "polygon_count": 499772,
+      "topology": "triangle",
+      "texture_resolution": "2048x2048 (PNG verificado)",
+      "texture_model": "meshy-n1",
+      "pose": "A das referências; sem normalização",
+      "rig": false,
+      "scale": "Não calibrada"
+    },
+    "source/attempt_001/geometry.glb": {
+      "polygon_count": 30994,
+      "topology": "triangle",
+      "texture_resolution": "Sem textura",
+      "pose": "a-pose",
+      "rig": false
+    },
+    "source/attempt_002/geometry.glb": {
+      "polygon_count": 514024,
+      "topology": "triangle",
+      "texture_resolution": "Sem textura",
+      "pose": "a-pose",
+      "rig": false
+    },
+    "source/attempt_003/geometry.glb": {
+      "polygon_count": 438922,
+      "topology": "triangle",
+      "texture_resolution": "Sem textura",
+      "pose": "a-pose",
+      "rig": false
+    },
+    "source/attempt_004/geometry.glb": {
+      "polygon_count": 499786,
+      "topology": "triangle",
+      "texture_resolution": "Sem textura",
+      "pose": "Pose das referências",
+      "rig": false
+    }
+  },
+  "preferred_export": "v003"
 }

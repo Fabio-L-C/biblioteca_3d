@@ -1,37 +1,40 @@
 # Espadachim de fantasia
 
-| Campo | Versão atual v002 |
-| --- | --- |
-| Estado | review — aguardando avaliação visual |
-| Tentativa | attempt_002 |
-| Geometria final | 514.009 triângulos, sem remesh |
-| Textura | 4096 × 4096 |
-| Pose | A |
-| Rig | Ausente |
-| Custo da tentativa | 30 créditos |
+## Versões atuais para avaliação
 
-## Arquivos atuais
+| Versão | Modelo de textura | Resolução verificada | Observação |
+| --- | --- | --- | --- |
+| [v003](exports/v003/chr_001_anime_espadachim_v003.glb) | Meshy 7 | Cor 8K; PBR 4K | Mais detalhe nos olhos e materiais; ainda há irregularidades nas sobrancelhas e no limite cabelo/pele |
+| [v004](exports/v004/chr_001_anime_espadachim_v004.glb) | Meshy N1 | Cor 2K, sem PBR | Cor mais limpa e menos vazamentos; olhos suavizados |
 
-- [Modelo GLB v002](exports/v002/chr_001_anime_espadachim_v002.glb).
-- [Prévia frontal](previews/textured_v002_front.png).
-- [Close do rosto](previews/textured_v002_head_front.png).
-- [Close em três-quartos](previews/textured_v002_head_threequarter.png).
-- [Close da mão](previews/textured_v002_hand.png).
+Ambas usam a geometria de attempt_004: Meshy 7.1 Ultra 2K com quatro vistas, sem remesh e sem normalização automática da pose. A mão aberta e os cinco dedos separados foram conferidos em close.
+
+Estado: review. A maior resolução não significa aprovação de qualidade. Sem rig, teste de deformação ou otimização para jogo. As primeiras versões foram reprovadas pelo usuário e continuam preservadas.
+
+## Prévias
+
+- [Corpo inteiro — 8K PBR](previews/textured_v003_front.png).
+- [Rosto — 8K PBR](previews/textured_v003_head_front.png).
+- [Mão — 8K PBR](previews/textured_v003_hand.png).
+- [Rosto — N1](previews/textured_n1_compare_head_front.png).
+- [Quatro referências](references/README.md).
 - [Metadados e tarefas](metadata.json).
-- [Referências por tentativa](references/README.md).
-- Originais preservados em source/attempt_002/.
 
-## Comparação
+## Comparações de geração
 
-| Versão | Malha final | Textura | Avaliação |
-| --- | ---: | --- | --- |
-| [v001](exports/v001/chr_001_anime_espadachim_v001.glb) | 30.994 triângulos | 2K | Reprovada pelo usuário: bloco na orelha e qualidade insuficiente |
-| [v002](exports/v002/chr_001_anime_espadachim_v002.glb) | 514.009 triângulos | 4K | Nova versão em avaliação, sem simplificação |
+| Tentativa | Configuração | Resultado da inspeção |
+| --- | --- | --- |
+| attempt_001 | Meshy 7, 3 vistas, remesh 30 mil, textura 2K | Reprovada: bloco junto à orelha e qualidade insuficiente |
+| attempt_002 | Meshy 7, 3 vistas, sem remesh, textura 4K | Reprovada: qualidade ainda insuficiente |
+| attempt_003 | Meshy 7.1 Ultra 2K, 4 vistas, normalização A-pose | Melhor geometria facial, mas dedos fundidos; sem textura |
+| attempt_004 | Mesmas 4 vistas e Ultra, sem pose_mode | Mãos abertas e dedos separados; duas texturas comparadas |
 
-A segunda tentativa usa cabelo penteado para trás, olhos e orelhas expostos e referências com volumes mais claros. O bloco retangular da versão anterior não aparece nos closes inspecionados. A textura ainda apresenta contaminação azul na região das orelhas e a mão tem dedos pouco separados/definidos. O rosto permanece estilizado e dependente de detalhes pintados.
+As diferenças reforçam a hipótese de que a normalização de pose interfere nas mãos, mas as gerações estocásticas não provam causalidade definitiva.
 
-Não houve rig ou teste de deformações. Esta malha detalhada serve para avaliação e ainda não foi otimizada para jogo. Aumento de polígonos e resolução não significa aprovação de qualidade.
+## Diretriz de qualidade
 
-## Tarefas e custo
+Usar quatro imagens por personagem e os melhores modelos e estratégias para a tarefa, independentemente do custo relativo. A API Multi-Image reconstrói geometria pelas imagens e não oferece prompt de forma. A textura multivista não aceita prompt textual simultâneo; a [especificação](prompts/meshy_quality_v003.txt) foi preservada sem declarar envio de um campo inexistente.
 
-Geometria: 01a1d0f5-8ba4-74a8-82c3-8307fb5a6907. Textura: 01a1d0f8-7577-777f-9971-e6eb334e5a6d. Consumo da segunda tentativa: 30 créditos. Consumo acumulado: 60 créditos. Saldo consultado: 1.130 créditos em 2026-11-12. As versões anteriores foram preservadas.
+## Consumo confirmado
+
+Nesta rodada: 25 créditos da tentativa 003 + 25 da geometria 004 + 15 da textura 8K + 10 da comparação N1 = 75 créditos. Consumo acumulado do projeto: 135. Saldo final consultado: 1.055 créditos (615 mensais e 440 permanentes), em 2026-11-12.

@@ -19,10 +19,14 @@ A estimativa registrada para Meshy 7 com textura é de 35 créditos por tentativ
 
 ## Registro de consumo
 
-Consumo confirmado das duas tentativas: 60 créditos. Saldo consultado após geometria e textura da segunda tentativa em 2026-11-12: 1.130 créditos. Estes registros não representam o histórico completo da conta.
+Consumo confirmado do projeto: 135 créditos. Saldo final consultado em 2026-11-12: 1.055 créditos, sendo 615 mensais e 440 permanentes. Estes registros não representam o histórico completo da conta.
 
 | Data | Personagem | Tentativa | Operação / ID da tarefa | Estimativa | Custo efetivo | Fonte / situação |
 | --- | --- | --- | --- | ---: | ---: | --- |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_004 | Textura N1 comparativa / 01a1d114-742f-75dc-abd0-1e4eef179b54 | 10 | 10 | SUCCEEDED; confirmado pela API |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_004 | Textura Meshy 7 8K PBR / 01a1d110-c55d-76c9-97e6-c1534baf842e | 15 | 15 | SUCCEEDED; confirmado pela API |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_004 | Ultra 2K sem pose_mode / 01a1d10e-e646-7689-8dab-c3a4d863b7e4 | 25 | 25 | SUCCEEDED; comparação controlada |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_003 | Meshy 7.1 Ultra 2K / 01a1d10b-1b24-715d-9694-262be78be531 | 25 | 25 | SUCCEEDED; quatro vistas, sem remesh |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_002 | Retexture 4K / 01a1d0f8-7577-777f-9971-e6eb334e5a6d | 10 | 10 | SUCCEEDED; confirmado pela API |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_002 | Multi-image to 3D / 01a1d0f5-8ba4-74a8-82c3-8307fb5a6907 | 20 | 20 | SUCCEEDED; sem remesh |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_001 | Multi-image to 3D / 01a1d0cb-6bc2-7238-8216-16fd3d6a901f | 20 | 20 | SUCCEEDED; confirmado pela API |
@@ -45,3 +49,11 @@ Servidor local @meshy-ai/meshy-mcp-server 0.5.2 encontrado instalado. Inicializa
 ## Segunda tentativa — 2026-11-12
 
 Geometria sem remesh: 20 créditos. Textura 4K: 10 créditos. Total desta tentativa: 30 créditos. Total confirmado do projeto: 60 créditos. Saldo após a segunda tentativa: 1.130 créditos. Sem rig ou compra de créditos.
+
+## Saldo detalhado antes da tentativa 003 — 2026-11-12
+
+Consulta MCP 0.6.11: total 1.130, sendo 690 mensais e 440 permanentes. Próximo reset mensal retornado pela API: 2026-11-24T11:54:46.000Z (24/11/2026 às 08:54:46 em São Paulo). Diretriz atual: priorizar qualidade sobre economia, mantendo registro do consumo.
+
+## Rodada de qualidade com quatro vistas — 2026-11-12
+
+Comparação geométrica: 25 + 25 créditos. Texturas: 15 (Meshy 7 8K PBR) + 10 (N1). Total desta rodada: 75. Acumulado: 135. Saldo final: 1.055 (615 mensais + 440 permanentes). Reset mensal retornado pela API: 2026-11-24T11:54:46Z. Nenhuma compra de créditos ou renovação realizada.

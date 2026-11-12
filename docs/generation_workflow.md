@@ -40,8 +40,8 @@ Se a plataforma repetir ou refizer uma operação paga, preservar o histórico e
 
 1. Criar a ficha e metadata.json com status planned; adicionar a entrada ao catálogo.
 2. Definir conceito e preparar imagens. Registrar procedência e prompts exatos. Manter um personagem adulto, corpo inteiro e fundo limpo por imagem.
-3. Conferir consistência das vistas: mesma roupa, cabelo, proporções, escala, iluminação e pose. Preferir imagem única a vistas conflitantes.
-4. Marcar references_ready após a revisão. Confirmar modelo, método e custo na ferramenta efetivamente disponível.
+3. Preparar e conferir quatro vistas: frente, perfil esquerdo, costas e perfil direito, com mesma roupa, cabelo, proporções, escala, iluminação, pose e orientação das mãos. Regenerar referências divergentes antes de enviar.
+4. Marcar references_ready após a revisão. Escolher os melhores modelos e recursos de qualidade atuais para a tarefa, independentemente do custo relativo. Registrar método e custo real.
 5. Ao iniciar geração, criar o registro de tentativa e salvar o ID da tarefa retornado. Marcar generating. Antes de repetir uma solicitação interrompida, consultar a tarefa existente.
 6. Ao concluir, preservar os arquivos originais em source/attempt_NNN/, registrar seus caminhos e marcar review. Em caso de falha, registrar o erro e marcar needs_work; não inventar arquivos ou reembolso.
 7. Inspecionar geometria antes de texturizar quando houver etapas separadas. Registrar cada operação e seu custo conhecido.
@@ -74,3 +74,19 @@ Esses estados descrevem o personagem; cada tentativa e operação também preser
 ## Critérios de avaliação
 
 Verificar silhueta, rosto, mãos, pés, costas, fusões entre membros, fidelidade visual, materiais e dependências. Registrar topologia, polígonos, escala, textura e rig apenas quando inspecionados. Pose A/T não garante deformação adequada. Se não houver ferramenta para abrir ou testar o modelo, manter a validação pendente e registrar a limitação.
+
+## Seleção de qualidade — diretriz de 2026-11-12
+
+- Quatro imagens por geração de personagem; manter frente como primeira entrada.
+- Referências consistentes têm prioridade; checar dedos separados e rotação dos punhos entre vistas.
+- Geometria detalhada: no momento Meshy 7.1 + geometry_resolution 2k (Ultra), sem remesh. Não confundir esse valor com resolução de textura.
+- Textura: escolher o modelo conforme o tipo de defeito. Meshy 7 permite detalhe e PBR até 8K; N1 prioriza cor limpa para estilo e poucas costuras, mas opera em 2K e pode suavizar rostos. Comparações devem ser documentadas, sem presumir que o maior número de pixels sempre vence.
+- Prompts e imagens devem ser combinados apenas onde suportado. Multi-Image não aceita prompt de geometria; textura multivista não pode ser combinada com texture_prompt na mesma requisição.
+- Preservar geometria de alta qualidade; criar otimizações em versões derivadas, nunca substituir originais.
+- A escolha de melhor modelo e consumo superior ao plano inicial já foi autorizada pelo usuário. Não comprar créditos ou renovar assinatura automaticamente.
+
+Fontes: https://docs.meshy.ai/en/api/models e https://docs.meshy.ai/en/api/multi-image-to-3d (consultadas em 2026-11-12).
+
+## Preservação de pose e mãos
+
+Na comparação entre attempt_003 e attempt_004, a geração sem pose_mode preservou a mão aberta e cinco dedos separados. A geração com a-pose automática resultou em dedos fundidos. Como as gerações são estocásticas, isso não prova causalidade, mas orienta o fluxo atual: quando as quatro referências já têm uma pose adequada, omitir normalização automática e conferir as mãos em close antes de texturizar.
