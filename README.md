@@ -12,7 +12,7 @@ Também é possível executar `py -3 scripts/serve_gallery.py` na raiz. Consulte
 
 - Arquitetura por personagem aplicada em 12/11/2026, com catálogo e guias operacionais.
 - Primeiro personagem gerado e em avaliação (review): chr_001_anime_espadachim.
-- Versões v001/v002 preservadas e reprovadas pelo usuário. Novas alternativas: v003 (8K PBR) e v004 (N1), com quatro vistas e geometria Ultra sem normalização de pose. Em avaliação. Consumo acumulado: 135 créditos; saldo final consultado: 1.055.
+- v005 em T-pose disponível na galeria: quatro referências, Meshy 7.1 Ultra 2K sem remesh e textura N1 2K. v001–v004 preservadas; usuário preferiu N1 na comparação anterior. Estado review, sem rig. Consumo acumulado: 170 créditos; saldo consultado: 1.020 (580 mensais + 440 permanentes).
 - Plataforma planejada: Meshy.
 - Seleção atual para máxima fidelidade geométrica: Meshy 7.1, Ultra 2K multivista e sem remesh; reavaliar modelos por tarefa.
 - Estratégia: validar um personagem anime, completar um piloto de seis estilos e então ampliar a coleção.

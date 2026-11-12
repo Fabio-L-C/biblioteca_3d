@@ -13,7 +13,7 @@
   "model": "meshy-7.1",
   "planned_generation": {
     "provider": "Meshy",
-    "model": "Meshy 7",
+    "model": "Meshy 7.1",
     "method": "multi_view",
     "pose": "T",
     "notes": "Próximas referências e gerações em T-pose obrigatória; quatro vistas consistentes, qualidade prioritária e melhores modelos disponíveis. Preservar T-pose das referências; se normalizar, usar t-pose e inspecionar mãos."
@@ -363,14 +363,104 @@
         "geometry_polygon_count": 499786
       },
       "balance_after": 1055
+    },
+    {
+      "id": "attempt_005",
+      "created_at": "2026-11-12T19:07:44.681Z",
+      "provider": "Meshy",
+      "interface": "local MCP 0.6.11",
+      "model": "meshy-7.1",
+      "method": "multi_view",
+      "parameters": {
+        "ai_model": "meshy-7.1",
+        "geometry_resolution": "2k",
+        "should_remesh": false,
+        "should_texture": false,
+        "image_enhancement": false,
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "response_format": "json"
+      },
+      "prompt_files": [
+        "prompts/t_pose_front_v001.txt",
+        "prompts/t_pose_left_v001.txt",
+        "prompts/t_pose_back_v001.txt",
+        "prompts/t_pose_right_v001.txt"
+      ],
+      "reference_files": [
+        "references/t_pose_front_v001.png",
+        "references/t_pose_left_v001.png",
+        "references/t_pose_back_v001.png",
+        "references/t_pose_right_v001.png"
+      ],
+      "status": "SUCCEEDED",
+      "operations": [
+        {
+          "type": "multi-image-to-3d",
+          "task_id": "01a1d128-a795-759e-b047-b971b4e154f0",
+          "status": "SUCCEEDED",
+          "estimated_credits": 25,
+          "actual_credits": 25
+        },
+        {
+          "type": "retexture",
+          "task_id": "01a1d138-9fc4-755d-8dd3-ca60d8d14e00",
+          "status": "SUCCEEDED",
+          "estimated_credits": 10,
+          "actual_credits": 10,
+          "parameters": {
+            "input_task_id": "01a1d128-a795-759e-b047-b971b4e154f0",
+            "ai_model": "meshy-n1",
+            "enable_original_uv": true,
+            "enable_pbr": false,
+            "texture_resolution": "2k",
+            "target_formats": [
+              "glb"
+            ],
+            "response_format": "json"
+          },
+          "reference_files": [
+            "references/t_pose_front_v001.png",
+            "references/t_pose_left_v001.png",
+            "references/t_pose_back_v001.png",
+            "references/t_pose_right_v001.png"
+          ],
+          "notes": "Quatro vistas em T-pose; N1 escolhido pela preferência visual do usuário. Sem prompt textual, sem PBR."
+        }
+      ],
+      "output_files": [
+        "source/attempt_005/geometry.glb",
+        "source/attempt_005/textured_n1.glb",
+        "source/attempt_005/textured_n1_base_color.png"
+      ],
+      "review_notes": [
+        "Quatro novas referências em T-pose revisadas; palmas para frente e perfis com braços de ponta. Preservar pose original sem normalização para evitar alteração das mãos observada anteriormente. Textura planejada: Meshy N1, preferência explícita do usuário.",
+        "Geometria aberta no Blender 5.2: T-pose com braços horizontais, cinco dedos separados no close e sem bloco retangular junto à orelha nos ângulos renderizados. Malha de 477.922 triângulos, sem rig; topologia e deformações ainda não validadas.",
+        "v005: diagnóstico corrigido após imagens do usuário. Há prolongamentos geométricos indevidos sob ambas as orelhas, semelhantes a lóbulos duplicados ou apêndices. Não é apenas coloração da textura; a origem exata do erro de reconstrução ainda não foi isolada. Requer correção da malha e, se necessário, ajuste de UV/textura. T-pose e dedos separados preservados; olhos/mãos suavizados. Sem rig ou teste de deformações."
+      ],
+      "balance_before": 1055,
+      "technical": {
+        "polygon_count": 477916,
+        "topology": "triangle",
+        "texture_resolution": "2048x2048 (PNG verificado)",
+        "texture_model": "meshy-n1",
+        "pose": "T-pose das referências; sem normalização",
+        "rig": false,
+        "scale": "Não calibrada",
+        "geometry_polygon_count": 477922
+      },
+      "balance_after": 1020,
+      "actual_credits": 35
     }
   ],
   "files": {
     "references": [
-      "references/front_v003.png",
-      "references/left_profile_v004.png",
-      "references/back_v003.png",
-      "references/right_profile_v001.png"
+      "references/t_pose_front_v001.png",
+      "references/t_pose_left_v001.png",
+      "references/t_pose_back_v001.png",
+      "references/t_pose_right_v001.png"
     ],
     "prompts": [
       "prompts/front_v001.txt",
@@ -382,7 +472,11 @@
       "prompts/back_v003.txt",
       "prompts/right_profile_v001.txt",
       "prompts/right_profile_v001_correction.txt",
-      "prompts/meshy_quality_v003.txt"
+      "prompts/meshy_quality_v003.txt",
+      "prompts/t_pose_front_v001.txt",
+      "prompts/t_pose_left_v001.txt",
+      "prompts/t_pose_back_v001.txt",
+      "prompts/t_pose_right_v001.txt"
     ],
     "source": [
       "source/attempt_001/geometry.glb",
@@ -399,7 +493,10 @@
       "source/attempt_004/textured_textures/metallic.png",
       "source/attempt_004/textured_textures/normal.png",
       "source/attempt_004/textured_textures/roughness.png",
-      "source/attempt_004/textured_n1_base_color.png"
+      "source/attempt_004/textured_n1_base_color.png",
+      "source/attempt_005/geometry.glb",
+      "source/attempt_005/textured_n1.glb",
+      "source/attempt_005/textured_n1_base_color.png"
     ],
     "working": [],
     "exports": [
@@ -450,9 +547,38 @@
         "paths": [
           "exports/v004/chr_001_anime_espadachim_v004.glb"
         ]
+      },
+      {
+        "version": "v005",
+        "label": "v005 · T-pose · Meshy N1",
+        "source_attempt": "attempt_005",
+        "technical": {
+          "polygon_count": 477916,
+          "topology": "triangle",
+          "texture_resolution": "2048x2048 (PNG verificado)",
+          "texture_model": "meshy-n1",
+          "pose": "T-pose das referências; sem normalização",
+          "rig": false,
+          "scale": "Não calibrada"
+        },
+        "paths": [
+          "exports/v005/chr_001_anime_espadachim_v005.glb"
+        ]
       }
     ],
     "previews": [
+      "previews/textured_v005_front.png",
+      "previews/geometry_v005_back.png",
+      "previews/geometry_v005_front.png",
+      "previews/geometry_v005_hand.png",
+      "previews/geometry_v005_head_front.png",
+      "previews/geometry_v005_head_threequarter.png",
+      "previews/geometry_v005_side.png",
+      "previews/textured_v005_back.png",
+      "previews/textured_v005_hand.png",
+      "previews/textured_v005_head_front.png",
+      "previews/textured_v005_head_threequarter.png",
+      "previews/textured_v005_side.png",
       "previews/textured_n1_compare_back.png",
       "previews/textured_n1_compare_front.png",
       "previews/textured_n1_compare_hand.png",
@@ -498,11 +624,11 @@
     ]
   },
   "technical": {
-    "polygon_count": 499754,
+    "polygon_count": 477916,
     "topology": "triangle",
-    "texture_resolution": "8192x8192 cor; 4096x4096 PBR (verificado)",
-    "texture_model": "meshy-7",
-    "pose": "A das referências; sem normalização",
+    "texture_resolution": "2048x2048 (PNG verificado)",
+    "texture_model": "meshy-n1",
+    "pose": "T-pose das referências; sem normalização",
     "rig": false,
     "scale": "Não calibrada"
   },
@@ -578,7 +704,7 @@
         "provider": "OpenAI Image Generation",
         "view": "front",
         "local_path": "references/front_v003.png",
-        "status": "current",
+        "status": "previous_attempt",
         "prompt_file": "prompts/front_v003.txt"
       },
       {
@@ -586,7 +712,7 @@
         "provider": "OpenAI Image Generation",
         "view": "left_profile",
         "local_path": "references/left_profile_v004.png",
-        "status": "current",
+        "status": "previous_attempt",
         "prompt_file": "prompts/left_profile_v004.txt"
       },
       {
@@ -594,7 +720,7 @@
         "provider": "OpenAI Image Generation",
         "view": "back",
         "local_path": "references/back_v003.png",
-        "status": "current",
+        "status": "previous_attempt",
         "prompt_file": "prompts/back_v003.txt"
       },
       {
@@ -602,8 +728,48 @@
         "provider": "OpenAI Image Generation",
         "view": "right_profile",
         "local_path": "references/right_profile_v001.png",
-        "status": "current",
+        "status": "previous_attempt",
         "prompt_file": "prompts/right_profile_v001.txt"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "front",
+        "pose": "T",
+        "local_path": "references/t_pose_front_v001.png",
+        "prompt_file": "prompts/t_pose_front_v001.txt",
+        "status": "current",
+        "library_file_id": "libfile_6315c5a0286481919da6b993c49bcb3f"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "left_profile",
+        "pose": "T",
+        "local_path": "references/t_pose_left_v001.png",
+        "prompt_file": "prompts/t_pose_left_v001.txt",
+        "status": "current",
+        "library_file_id": "libfile_9985e23bde108191866b0fa25edd3b13"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "back",
+        "pose": "T",
+        "local_path": "references/t_pose_back_v001.png",
+        "prompt_file": "prompts/t_pose_back_v001.txt",
+        "status": "current",
+        "library_file_id": "libfile_0fff52f304d48191bc9fbfa4eba08fea"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "right_profile",
+        "pose": "T",
+        "local_path": "references/t_pose_right_v001.png",
+        "prompt_file": "prompts/t_pose_right_v001.txt",
+        "status": "current",
+        "library_file_id": "libfile_e67227f6a6cc81919039dc4f93dea244"
       }
     ],
     "generation_tool": null,
@@ -621,7 +787,8 @@
     "Inspeção final da textura v002 em close: bloco retangular ausente nos ângulos renderizados. Persistem manchas/contaminação azul no contorno das orelhas e dedos pouco separados. Melhor leitura do rosto, ainda sem aprovação de qualidade ou rig.",
     "Usuário reprovou v002 e definiu quatro vistas e prioridade absoluta de qualidade sobre economia de créditos. Próxima tentativa: integração atualizada, geometria Meshy 7.1 Ultra 2K sem remesh e quatro referências consistentes; texturas escolhidas por qualidade observada.",
     "Quatro vistas e Ultra 2K sem pose_mode preservaram mão aberta e cinco dedos separados na inspeção. Comparação de textura: Meshy 7 8K PBR tem olhos/materiais mais detalhados, mas irregularidades nas sobrancelhas e cabelo/pele; N1 tem cor mais limpa e menos costuras, porém olhos suavizados. Ambas preservadas para avaliação; nenhuma aprovada pelo usuário, sem rig/deformação ou otimização para jogo.",
-    "Usuário preferiu visualmente a v004 (textura Meshy N1) à v003 (Meshy 7 8K PBR). Definida como versão padrão da galeria. Preferência visual não implica validação de rig, deformações ou aprovação para produção."
+    "Usuário preferiu visualmente a v004 (textura Meshy N1) à v003 (Meshy 7 8K PBR). Definida como versão padrão da galeria. Preferência visual não implica validação de rig, deformações ou aprovação para produção.",
+    "v005: diagnóstico corrigido após imagens do usuário. Há prolongamentos geométricos indevidos sob ambas as orelhas, semelhantes a lóbulos duplicados ou apêndices. Não é apenas coloração da textura; a origem exata do erro de reconstrução ainda não foi isolada. Requer correção da malha e, se necessário, ajuste de UV/textura. T-pose e dedos separados preservados; olhos/mãos suavizados. Sem rig ou teste de deformações."
   ],
   "file_technical": {
     "source/attempt_004/textured.glb": {
@@ -669,9 +836,27 @@
       "texture_resolution": "Sem textura",
       "pose": "Pose das referências",
       "rig": false
+    },
+    "source/attempt_005/geometry.glb": {
+      "polygon_count": 477922,
+      "topology": "triangle",
+      "texture_resolution": "Sem textura",
+      "texture_model": null,
+      "pose": "T-pose das referências; sem normalização",
+      "rig": false,
+      "scale": "Não calibrada"
+    },
+    "source/attempt_005/textured_n1.glb": {
+      "polygon_count": 477916,
+      "topology": "triangle",
+      "texture_resolution": "2048x2048 (PNG verificado)",
+      "texture_model": "meshy-n1",
+      "pose": "T-pose das referências; sem normalização",
+      "rig": false,
+      "scale": "Não calibrada"
     }
   },
-  "preferred_export": "v004",
+  "preferred_export": "v005",
   "texture_preference": {
     "model": "meshy-n1",
     "basis": "Preferência explícita do usuário pela v004 em comparação com v003.",

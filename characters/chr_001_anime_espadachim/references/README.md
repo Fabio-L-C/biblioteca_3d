@@ -1,5 +1,19 @@
 # Referências por tentativa
 
+## Tentativa 005 — T-pose
+
+Quatro imagens salvas e enviadas tanto à geometria quanto à textura N1, nesta ordem:
+
+| Vista | Arquivo |
+| --- | --- |
+| Frente | [t_pose_front_v001.png](t_pose_front_v001.png) |
+| Perfil esquerdo | [t_pose_left_v001.png](t_pose_left_v001.png) |
+| Costas | [t_pose_back_v001.png](t_pose_back_v001.png) |
+| Perfil direito | [t_pose_right_v001.png](t_pose_right_v001.png) |
+
+Braços horizontais na altura dos ombros, palmas para frente e mãos vazias. Perfis com braços vistos de ponta. Pose preservada sem normalização automática. Prompts individuais em ../prompts/t_pose_*_v001.txt.
+
+
 ## Tentativa 003 — qualidade prioritária
 
 | Vista | Arquivo |

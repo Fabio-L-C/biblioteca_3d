@@ -19,10 +19,12 @@ A estimativa registrada para Meshy 7 com textura é de 35 créditos por tentativ
 
 ## Registro de consumo
 
-Consumo confirmado do projeto: 135 créditos. Saldo final consultado em 2026-11-12: 1.055 créditos, sendo 615 mensais e 440 permanentes. Estes registros não representam o histórico completo da conta.
+Consumo confirmado do projeto: 170 créditos. Saldo final consultado em 2026-11-12: 1.020 créditos, sendo 580 mensais e 440 permanentes. Estes registros não representam o histórico completo da conta.
 
 | Data | Personagem | Tentativa | Operação / ID da tarefa | Estimativa | Custo efetivo | Fonte / situação |
 | --- | --- | --- | --- | ---: | ---: | --- |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_005 | Geometria T-pose Ultra 2K / 01a1d128-a795-759e-b047-b971b4e154f0 | 25 | 25 | SUCCEEDED; tarefa existente retomada |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_005 | Textura N1 T-pose / 01a1d138-9fc4-755d-8dd3-ca60d8d14e00 | 10 | 10 | SUCCEEDED; quatro referências |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_004 | Textura N1 comparativa / 01a1d114-742f-75dc-abd0-1e4eef179b54 | 10 | 10 | SUCCEEDED; confirmado pela API |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_004 | Textura Meshy 7 8K PBR / 01a1d110-c55d-76c9-97e6-c1534baf842e | 15 | 15 | SUCCEEDED; confirmado pela API |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_004 | Ultra 2K sem pose_mode / 01a1d10e-e646-7689-8dab-c3a4d863b7e4 | 25 | 25 | SUCCEEDED; comparação controlada |
@@ -57,3 +59,7 @@ Consulta MCP 0.6.11: total 1.130, sendo 690 mensais e 440 permanentes. Próximo 
 ## Rodada de qualidade com quatro vistas — 2026-11-12
 
 Comparação geométrica: 25 + 25 créditos. Texturas: 15 (Meshy 7 8K PBR) + 10 (N1). Total desta rodada: 75. Acumulado: 135. Saldo final: 1.055 (615 mensais + 440 permanentes). Reset mensal retornado pela API: 2026-11-24T11:54:46Z. Nenhuma compra de créditos ou renovação realizada.
+
+## T-pose — 2026-11-12
+
+Tarefa geométrica existente retomada sem recriação. Geometria: 25 créditos; textura N1: 10. Total da tentativa 005: 35; acumulado: 170. Saldo consultado: 1.020 (580 mensais e 440 permanentes). Próximo reset: 2026-11-24T11:54:46Z.

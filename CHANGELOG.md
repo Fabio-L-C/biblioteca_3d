@@ -4,6 +4,14 @@ Histórico de alterações relevantes na estrutura, documentação e coleção d
 
 ## [Unreleased]
 
+### v005 em T-pose
+
+- Quatro novas vistas individuais em T-pose salvas, revisadas e usadas na geometria e na textura. Prompts e procedência preservados.
+- Tentativa 005 retomada pelo ID existente, sem cobrança duplicada: Meshy 7.1 Ultra 2K sem remesh ou normalização de pose; textura N1 conforme preferência visual anterior.
+- GLB v005 com 477.916 triângulos e cor 2K embutida, padrão da galeria para avaliação. Versões anteriores preservadas.
+- T-pose e dedos separados conferidos no Blender 5.2. Diagnóstico corrigido após imagens do usuário: prolongamentos geométricos indevidos sob ambas as orelhas, além de suavização de olhos/mãos; correção da malha pendente. Sem rig ou teste de deformações; aprovação visual do usuário pendente.
+- Custo: 35 créditos; acumulado: 170; saldo confirmado: 1.020 (580 mensais e 440 permanentes).
+
 ### Regra de pose
 
 - T-pose definida pelo usuário como obrigatória para próximas referências e gerações, substituindo o padrão A-pose. AGENTS.md, README.md, fluxo e planejamento dos personagens atualizados.
