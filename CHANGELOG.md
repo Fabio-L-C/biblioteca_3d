@@ -6,6 +6,11 @@ Histórico de alterações relevantes na estrutura, documentação e coleção d
 
 ### Adicionado
 
+- Galeria local em index.html, integrada a catalog.json e às fichas dos personagens.
+- Visualização com model-viewer 4.1.0 local, filtros, versões, download, referências ampliáveis e controles de câmera.
+- Iniciador abrir_galeria.bat e servidor Python em loopback na porta 8088.
+- Guia docs/gallery.md; verificações de sintaxe e HTTP concluídas. Conferência visual WebGL pendente por indisponibilidade do navegador automatizado.
+
 - Três PNGs originais usados na geração salvos na pasta de referências do primeiro personagem: front_v001.png, left_profile_v002.png e back_v001.png. Metadados e links locais atualizados.
 
 ### Próximas etapas

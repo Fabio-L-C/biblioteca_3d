@@ -2,6 +2,12 @@
 
 Repositório para criar, documentar, avaliar e guardar modelos 3D de personagens em estilos variados, com foco em reutilização em jogos e outros projetos.
 
+## Abrir a galeria
+
+Dê dois cliques em [abrir_galeria.bat](abrir_galeria.bat). O navegador abrirá a galeria em http://127.0.0.1:8088/, com rotação, zoom, versões e referências. Requer Python 3; mantenha a janela do servidor aberta durante o uso.
+
+Também é possível executar `py -3 scripts/serve_gallery.py` na raiz. Consulte o [guia da galeria](docs/gallery.md).
+
 ## Estado atual
 
 - Arquitetura por personagem aplicada em 12/11/2026, com catálogo e guias operacionais.
@@ -45,6 +51,9 @@ Créditos mensais e permanentes devem ser registrados separadamente. Segundo a d
 
 | Caminho | Finalidade |
 | --- | --- |
+| [index.html](index.html) | Galeria interativa dos personagens e modelos 3D |
+| [abrir_galeria.bat](abrir_galeria.bat) | Iniciador local no Windows |
+| assets/ | Interface e biblioteca model-viewer local |
 | README.md | Objetivos, plano, orçamento e fluxo de trabalho |
 | CHANGELOG.md | Histórico das alterações do projeto |
 | AGENTS.md | Instruções para agentes que trabalham no repositório |

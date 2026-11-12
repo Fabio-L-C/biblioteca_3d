@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><meta name="theme-color" content="#111512">
+<title>Biblioteca 3D · Galeria</title>
+<link rel="stylesheet" href="assets/gallery.css">
+<script type="module" src="assets/vendor/model-viewer.min.js" id="viewer-library"></script>
+<script defer src="assets/gallery.js"></script>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="./" aria-label="Biblioteca 3D, início"><span class="brand-mark" aria-hidden="true">◇</span><span>BIBLIOTECA <b>3D</b><small>ACERVO DE PERSONAGENS</small></span></a>
+<div class="top-right"><span class="local-tag"><i></i> Acervo local</span><a href="README.md" class="quiet-link">Documentação ↗</a></div>
+</header>
+<main>
+<section class="intro"><div><p class="eyebrow">DO CONCEITO À TERCEIRA DIMENSÃO</p><h1>Personagens, em todas<br>as suas perspectivas<span>.</span></h1><p class="intro-copy">Explore a coleção, examine cada detalhe e encontre a versão certa para o próximo projeto.</p></div><div class="counter"><strong id="total-count">—</strong><span>personagens<br>no acervo</span></div></section>
+<div id="notice" role="status" hidden></div>
+<div class="workspace">
+<aside class="collection" aria-label="Catálogo">
+<div class="section-heading"><h2>Coleção</h2><span id="visible-count" class="small-count">—</span></div>
+<label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar personagem…" aria-label="Buscar por nome, estilo ou função"></label>
+<div class="filters"><label>Estilo<select id="style-filter"><option value="">Todos os estilos</option></select></label><label>Estado<select id="status-filter"><option value="">Todos os estados</option></select></label></div>
+<div id="cards" class="cards" aria-live="polite"><p class="muted">Carregando catálogo…</p></div>
+<p class="collection-foot">Selecione um personagem para explorar em 3D.</p>
+</aside>
+<section class="detail" aria-label="Personagem selecionado">
+<div class="detail-top"><div><p class="eyebrow" id="character-id">VISUALIZADOR</p><h2 id="character-name">Carregando coleção</h2></div><span id="character-status" class="badge" hidden></span></div>
+<div class="stage" id="stage">
+<div class="stage-top"><span class="stage-label" id="stage-label">ESTÚDIO 3D</span><button class="icon-button" id="fullscreen" aria-label="Alternar tela cheia" title="Tela cheia">⛶</button></div>
+<model-viewer id="viewer" camera-controls touch-action="pan-y" shadow-intensity="0.65" environment-image="neutral" exposure="1" camera-orbit="0deg 82deg 105%" field-of-view="30deg" interaction-prompt="none" loading="eager" reveal="auto" aria-label="Modelo 3D interativo"><div slot="progress-bar" id="progress-bar"><div></div></div></model-viewer>
+<div class="viewer-message" id="viewer-message" role="status"><span class="spinner" id="spinner"></span><span id="viewer-message-text">Preparando visualizador…</span><button id="retry" class="secondary" hidden>Tentar novamente</button></div>
+<div class="stage-bottom"><span>ARRASTE PARA GIRAR <span class="dot">·</span> ROLE PARA APROXIMAR</span><span id="loaded-label">GLB</span></div>
+</div>
+<div class="controls"><div class="camera-buttons" role="group" aria-label="Posição da câmera"><button class="secondary" data-orbit="0deg 82deg 105%">Frente</button><button class="secondary" data-orbit="90deg 82deg 105%">Lateral</button><button class="secondary" data-orbit="180deg 82deg 105%">Costas</button><button class="secondary" id="reset">↺ Reenquadrar</button></div><div class="viewer-options"><button class="secondary" id="rotate" aria-pressed="false">Rotação automática</button><button class="secondary" id="background" aria-pressed="false">Fundo claro</button></div></div>
+<div class="asset-bar"><label class="version-label">VERSÃO<select id="versions" aria-label="Versão do modelo"></select></label><a id="download" class="primary" download hidden>Baixar GLB <span aria-hidden="true">↓</span></a></div>
+<div class="info-grid"><section><h3>Sobre o personagem</h3><p id="concept" class="description">Selecione um item do catálogo.</p><dl id="specs" class="specs"></dl></section><section><div class="section-heading"><h3>Referências de criação</h3><span id="reference-count" class="small-count">0</span></div><div id="references" class="references"></div></section></div>
+<details class="notes" id="review"><summary>Notas de avaliação</summary><p id="review-notes"></p><a id="character-doc" class="quiet-link" hidden>Ver ficha completa ↗</a></details>
+</section>
+</div>
+</main>
+<footer><span>BIBLIOTECA 3D</span><span>Um acervo em construção. Cada versão, uma nova possibilidade.</span></footer>
+<dialog id="image-dialog"><button id="close-dialog" class="icon-button" aria-label="Fechar imagem">×</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog>
+<noscript><p class="no-script">Ative o JavaScript para explorar o catálogo e os modelos 3D.</p></noscript>
+</body></html>
