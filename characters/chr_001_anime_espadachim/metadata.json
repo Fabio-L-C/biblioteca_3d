@@ -15,8 +15,8 @@
     "provider": "Meshy",
     "model": "Meshy 7",
     "method": "multi_view",
-    "pose": "A",
-    "notes": "Confirmar disponibilidade, custo e consistência das referências antes de executar."
+    "pose": "T",
+    "notes": "Próximas referências e gerações em T-pose obrigatória; quatro vistas consistentes, qualidade prioritária e melhores modelos disponíveis. Preservar T-pose das referências; se normalizar, usar t-pose e inspecionar mãos."
   },
   "attempts": [
     {
@@ -453,6 +453,12 @@
       }
     ],
     "previews": [
+      "previews/textured_n1_compare_back.png",
+      "previews/textured_n1_compare_front.png",
+      "previews/textured_n1_compare_hand.png",
+      "previews/textured_n1_compare_head_front.png",
+      "previews/textured_n1_compare_head_threequarter.png",
+      "previews/textured_n1_compare_side.png",
       "previews/textured_v003_back.png",
       "previews/textured_v003_front.png",
       "previews/textured_v003_hand.png",
@@ -471,12 +477,6 @@
       "previews/geometry_v004_head_front.png",
       "previews/geometry_v004_head_threequarter.png",
       "previews/geometry_v004_side.png",
-      "previews/textured_n1_compare_back.png",
-      "previews/textured_n1_compare_front.png",
-      "previews/textured_n1_compare_hand.png",
-      "previews/textured_n1_compare_head_front.png",
-      "previews/textured_n1_compare_head_threequarter.png",
-      "previews/textured_n1_compare_side.png",
       "previews/geometry_v002_back.png",
       "previews/geometry_v002_front.png",
       "previews/geometry_v002_hand.png",
@@ -620,7 +620,8 @@
     "Tentativa 002: geometria sem remesh e textura 4K. No close da malha não aparece o bloco retangular da versão anterior; rosto e olhos agora expostos. Malha detalhada para avaliação; mãos ainda limitadas e sem teste de rig/deformação. Aprovação visual final pendente do usuário.",
     "Inspeção final da textura v002 em close: bloco retangular ausente nos ângulos renderizados. Persistem manchas/contaminação azul no contorno das orelhas e dedos pouco separados. Melhor leitura do rosto, ainda sem aprovação de qualidade ou rig.",
     "Usuário reprovou v002 e definiu quatro vistas e prioridade absoluta de qualidade sobre economia de créditos. Próxima tentativa: integração atualizada, geometria Meshy 7.1 Ultra 2K sem remesh e quatro referências consistentes; texturas escolhidas por qualidade observada.",
-    "Quatro vistas e Ultra 2K sem pose_mode preservaram mão aberta e cinco dedos separados na inspeção. Comparação de textura: Meshy 7 8K PBR tem olhos/materiais mais detalhados, mas irregularidades nas sobrancelhas e cabelo/pele; N1 tem cor mais limpa e menos costuras, porém olhos suavizados. Ambas preservadas para avaliação; nenhuma aprovada pelo usuário, sem rig/deformação ou otimização para jogo."
+    "Quatro vistas e Ultra 2K sem pose_mode preservaram mão aberta e cinco dedos separados na inspeção. Comparação de textura: Meshy 7 8K PBR tem olhos/materiais mais detalhados, mas irregularidades nas sobrancelhas e cabelo/pele; N1 tem cor mais limpa e menos costuras, porém olhos suavizados. Ambas preservadas para avaliação; nenhuma aprovada pelo usuário, sem rig/deformação ou otimização para jogo.",
+    "Usuário preferiu visualmente a v004 (textura Meshy N1) à v003 (Meshy 7 8K PBR). Definida como versão padrão da galeria. Preferência visual não implica validação de rig, deformações ou aprovação para produção."
   ],
   "file_technical": {
     "source/attempt_004/textured.glb": {
@@ -670,5 +671,10 @@
       "rig": false
     }
   },
-  "preferred_export": "v003"
+  "preferred_export": "v004",
+  "texture_preference": {
+    "model": "meshy-n1",
+    "basis": "Preferência explícita do usuário pela v004 em comparação com v003.",
+    "scope": "Este personagem; referência para futuras comparações em personagens anime semelhantes, sem presumir melhor resultado em todos os estilos."
+  }
 }

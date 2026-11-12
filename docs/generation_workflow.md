@@ -36,6 +36,12 @@ Criar attempt_NNN e vNNN somente quando houver a tentativa ou exportação corre
 
 Se a plataforma repetir ou refizer uma operação paga, preservar o histórico e seu ID. Associar cada exportação à tentativa que a originou. Não sobrescrever downloads originais.
 
+## Pose obrigatória
+
+Todas as próximas referências e gerações devem usar **T-pose**: braços estendidos horizontalmente na altura dos ombros. Frente, perfil esquerdo, costas e perfil direito devem mostrar a mesma pose. Validar mãos, ombros e cotovelos no resultado 3D.
+
+Quando as referências já estiverem em T-pose, preservá-las sem normalização automática. Se for necessário especificar ou corrigir a pose na ferramenta, usar pose_mode t-pose e revisar o resultado. Não usar A-pose nas novas gerações. Os registros das tentativas anteriores permanecem com a pose realmente utilizada.
+
 ## Sequência de trabalho
 
 1. Criar a ficha e metadata.json com status planned; adicionar a entrada ao catálogo.
@@ -73,7 +79,7 @@ Esses estados descrevem o personagem; cada tentativa e operação também preser
 
 ## Critérios de avaliação
 
-Verificar silhueta, rosto, mãos, pés, costas, fusões entre membros, fidelidade visual, materiais e dependências. Registrar topologia, polígonos, escala, textura e rig apenas quando inspecionados. Pose A/T não garante deformação adequada. Se não houver ferramenta para abrir ou testar o modelo, manter a validação pendente e registrar a limitação.
+Verificar silhueta, rosto, mãos, pés, costas, fusões entre membros, fidelidade visual, materiais e dependências. Registrar topologia, polígonos, escala, textura e rig apenas quando inspecionados. T-pose não garante deformação adequada. Se não houver ferramenta para abrir ou testar o modelo, manter a validação pendente e registrar a limitação.
 
 ## Seleção de qualidade — diretriz de 2026-11-12
 
@@ -89,4 +95,4 @@ Fontes: https://docs.meshy.ai/en/api/models e https://docs.meshy.ai/en/api/multi
 
 ## Preservação de pose e mãos
 
-Na comparação entre attempt_003 e attempt_004, a geração sem pose_mode preservou a mão aberta e cinco dedos separados. A geração com a-pose automática resultou em dedos fundidos. Como as gerações são estocásticas, isso não prova causalidade, mas orienta o fluxo atual: quando as quatro referências já têm uma pose adequada, omitir normalização automática e conferir as mãos em close antes de texturizar.
+Na comparação entre attempt_003 e attempt_004, a geração sem pose_mode preservou a mão aberta e cinco dedos separados. A geração com a-pose automática resultou em dedos fundidos. Como as gerações são estocásticas, isso não prova causalidade, mas orienta a preservação de pose: quando as quatro referências já estão na T-pose obrigatória, omitir normalização automática e conferir as mãos em close antes de texturizar. Essa comparação é histórica e não autoriza A-pose em novas gerações.

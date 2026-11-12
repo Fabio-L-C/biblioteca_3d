@@ -40,7 +40,7 @@ Leia README.md e CHANGELOG.md antes de modificar o projeto. Leia também a ficha
 - Não reduzir qualidade, resolução, número de vistas ou geometria para economizar créditos. Custos continuam registrados, sem comprar créditos ou renovar planos automaticamente.
 - Preservar a malha detalhada; otimização para jogos somente em versão separada e depois da validação visual.
 - Sempre que a API aceitar a combinação, enviar as quatro vistas e o prompt. Respeitar campos mutuamente exclusivos: não afirmar que o prompt guiou uma etapa que só aceita imagens.
-- Pose A ou T, corpo inteiro e mãos visíveis; evitar objetos nas mãos no piloto. Acessórios complexos podem ser tratados separadamente.
+- T-pose obrigatória para as próximas referências e modelos: braços estendidos horizontalmente na altura dos ombros, corpo inteiro e mãos visíveis. Não usar A-pose como padrão. Evitar objetos nas mãos no piloto; acessórios complexos podem ser tratados separadamente.
 - Estas são diretrizes de produção, não autorização para iniciar todas as gerações de uma vez.
 
 ## Integrações e gastos
@@ -63,7 +63,8 @@ Leia README.md e CHANGELOG.md antes de modificar o projeto. Leia também a ficha
 - Se as quatro vistas forem contraditórias, corrigir ou regenerar as referências antes de enviar ao Meshy. Não substituir o conjunto por uma imagem única como estratégia de economia.
 - Se gerar vistas complementares, revise-as antes da conversão para 3D.
 - Quando a ferramenta permitir, avalie a geometria antes de gastar com textura.
-- Se as quatro referências já estiverem em pose adequada, preservar a pose original sem normalização automática por padrão; comparar quando necessário. A comparação attempt_003/004 indicou melhor separação dos dedos sem pose_mode, sem estabelecer causalidade definitiva.
+- As quatro vistas devem representar a mesma T-pose. Quando já estiverem corretas, preservar a pose das referências sem normalização automática. Se a etapa exigir normalização, usar pose_mode t-pose e inspecionar mãos e postura; não usar a-pose. A comparação histórica attempt_003/004 permanece registrada e não altera a regra atual de T-pose.
+- Validar T-pose no resultado 3D antes de aprovar a geometria. Manter os parâmetros e as poses reais das tentativas anteriores como histórico, sem reclassificá-las como T-pose.
 - Não prometa topologia adequada à animação, rig funcional ou qualidade de produção só porque a geração terminou.
 
 ## Validação e rastreabilidade

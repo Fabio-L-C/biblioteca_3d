@@ -1,5 +1,9 @@
 # Espadachim de fantasia
 
+## Versão preferida
+
+O usuário preferiu a **v004 com textura Meshy N1**. Ela é a versão padrão da galeria. A preferência é visual; rig e deformações continuam não validados.
+
 ## Versões atuais para avaliação
 
 | Versão | Modelo de textura | Resolução verificada | Observação |

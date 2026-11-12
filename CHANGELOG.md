@@ -4,6 +4,15 @@ Histórico de alterações relevantes na estrutura, documentação e coleção d
 
 ## [Unreleased]
 
+### Regra de pose
+
+- T-pose definida pelo usuário como obrigatória para próximas referências e gerações, substituindo o padrão A-pose. AGENTS.md, README.md, fluxo e planejamento dos personagens atualizados.
+- Poses e parâmetros reais das versões anteriores preservados. Nenhuma geração ou consumo de créditos nesta alteração.
+
+### Preferência visual
+
+- Usuário preferiu v004 (Meshy N1) à v003 (Meshy 7 8K PBR). Versão padrão e prévia do catálogo alteradas para v004, preservando as alternativas e o estado de avaliação. Nenhum crédito consumido.
+
 ### Prioridade de qualidade
 
 - Comparação attempt_003/004: retirar pose_mode resultou em mãos abertas e cinco dedos separados nesta geração; hipótese de interferência da normalização registrada sem atribuição causal definitiva.

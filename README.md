@@ -19,6 +19,8 @@ Também é possível executar `py -3 scripts/serve_gallery.py` na raiz. Consulte
 
 ## Prioridade de qualidade
 
+**Pose padrão obrigatória: T-pose**, com braços estendidos horizontalmente na altura dos ombros. Aplicar nas quatro referências e validar no modelo gerado. Essa regra vale para as próximas gerações; as versões existentes preservam sua pose original.
+
 Diretriz do usuário em 2026-11-12: priorizar qualidade visual independentemente do consumo de créditos Meshy. Usar quatro vistas consistentes por personagem — frente, perfil esquerdo, costas e perfil direito — e selecionar os melhores modelos e estratégias atuais para a tarefa. Não reduzir resolução, geometria ou número de vistas para economizar. Preservar uma malha detalhada; otimização para jogo fica em uma versão separada após a avaliação.
 
 O prompt deve ser preservado e enviado onde a API permitir. Geometria Multi-Image não aceita prompt textual de forma; referências de textura multivista e prompt são mutuamente exclusivos no endpoint consultado. Não enviar parâmetros ignorados nem afirmar que um prompt guiou uma etapa que não o aceita.
@@ -98,11 +100,11 @@ Cada personagem tem README.md e metadata.json próprios. O primeiro cadastro est
 
 1. Definir conceito, estilo, finalidade e complexidade do personagem.
 2. Preparar uma referência frontal limpa: corpo inteiro, personagem centralizado, iluminação neutra e margem ao redor do corpo.
-3. Preparar quatro vistas consistentes: frente, perfil esquerdo, costas e perfil direito. Conferir roupa, cabelo, proporções, mãos e pose. Corrigir divergências antes da geração.
+3. Preparar quatro vistas consistentes: frente, perfil esquerdo, costas e perfil direito. Conferir roupa, cabelo, proporções, mãos e a mesma T-pose em todas as vistas. Corrigir divergências antes da geração.
 4. Confirmar os melhores modelos e recursos atuais para qualidade, sem escolher configurações inferiores para economizar. Registrar o custo e os parâmetros reais.
 5. Gerar a geometria, separando a textura em uma etapa posterior quando a ferramenta permitir. Registrar o ID da tarefa antes de acompanhar o processamento.
 6. Inspecionar silhueta, rosto, mãos, pés, costas e separação dos membros. Texturizar as versões aprovadas quando houver separação de etapas.
-7. Avaliar topologia, materiais e necessidade de remesh. Pose A ou T ajuda na preparação, mas não garante uma malha adequada à animação.
+7. Validar T-pose, topologia, materiais e necessidade de remesh. A T-pose não garante uma malha adequada à animação; rig e deformações ainda precisam de teste.
 8. Testar rig e deformações se a finalidade exigir animação. Validar proporções estilizadas, especialmente chibi, antes de automatizar o rig.
 9. Baixar e preservar os originais; gerar arquivos de trabalho e exportações conforme necessário.
 10. Atualizar a ficha do personagem, metadados, custo efetivo e changelog.
