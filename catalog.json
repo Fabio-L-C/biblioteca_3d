@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-12",
+  "characters": [
+    {
+      "id": "chr_001_anime_espadachim",
+      "name": "Espadachim de fantasia",
+      "style": "anime",
+      "role": "espadachim",
+      "status": "planned",
+      "path": "characters/chr_001_anime_espadachim"
+    }
+  ]
+}

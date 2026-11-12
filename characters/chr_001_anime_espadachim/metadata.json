@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "id": "chr_001_anime_espadachim",
+  "name": "Espadachim de fantasia",
+  "style": "anime",
+  "role": "espadachim",
+  "concept": "Espadachim fictícia adulta de 28 anos, estilo anime, cabelo azul-escuro curto, olhos âmbar, túnica creme, colete azul-marinho, calça escura, botas marrons e proteção leve nos antebraços. Sem arma nas mãos, pose A.",
+  "status": "planned",
+  "created_at": "2026-11-12",
+  "updated_at": "2026-11-12",
+  "provider": null,
+  "interface": null,
+  "model": null,
+  "planned_generation": {
+    "provider": "Meshy",
+    "model": "Meshy 7",
+    "method": "multi_view",
+    "pose": "A",
+    "notes": "Confirmar disponibilidade, custo e consistência das referências antes de executar."
+  },
+  "attempts": [],
+  "files": {
+    "references": [],
+    "prompts": [
+      "prompts/front_v001.txt"
+    ],
+    "source": [],
+    "working": [],
+    "exports": [],
+    "previews": []
+  },
+  "technical": {
+    "polygon_count": null,
+    "topology": null,
+    "texture_resolution": null,
+    "scale": null,
+    "pose": null,
+    "rig": null
+  },
+  "provenance": {
+    "references": [
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "front",
+        "prompt_file": "prompts/front_v001.txt",
+        "location": "Imagem exibida na conversa em 2026-11-12; sem cópia local neste momento.",
+        "local_path": null
+      }
+    ],
+    "generation_tool": null,
+    "usage_terms": null
+  },
+  "review_notes": [
+    "Produção autorizada pelo usuário. Nenhuma ferramenta Meshy exposta nesta sessão; busca de plugin sem resultados. Acesso ao navegador falhou ao inicializar. Preparação de referência visual iniciada; nenhuma tarefa 3D enviada.",
+    "Referência frontal gerada: corpo inteiro, pose A e membros separados. Vistas de perfil e costas ainda não preparadas. Conversão 3D bloqueada por falta de acesso ao Meshy. Estado planned mantido; attempts continua vazio."
+  ]
+}
