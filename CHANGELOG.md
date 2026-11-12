@@ -4,6 +4,18 @@ Histórico de alterações relevantes na estrutura, documentação e coleção d
 
 ## [Unreleased]
 
+### Segunda tentativa
+
+- Três novas referências salvas com olhos e orelhas expostos e volumes em estilo anime 3D. Prompts preservados.
+- attempt_002 gerada sem remesh e texturizada em 4K, com exportação v002 de 514.009 triângulos. Versão anterior preservada.
+- Closes de cabeça e mão renderizados no Blender. Bloco retangular anterior ausente nos ângulos inspecionados; contaminação de cor nas orelhas e pouca definição dos dedos ainda presentes. Estado review, sem rig e sem otimização para jogo.
+- Consumo adicional: 30 créditos. Total acumulado: 60. Saldo confirmado: 1.130 créditos.
+- Galeria apresenta v002 primeiro e mostra dados técnicos conforme a tentativa da versão selecionada.
+
+### Avaliação
+
+- Primeiro personagem marcado como needs_work após retorno do usuário: artefato retangular junto à orelha, rosto e textura com qualidade insuficiente. Catálogo e ficha atualizados; nenhuma nova geração ou cobrança nesta avaliação.
+
 ### Adicionado
 
 - Galeria local em index.html, integrada a catalog.json e às fichas dos personagens.

@@ -22,9 +22,9 @@ function message(text, {busy=false,retry=false}={}) {
 function getVariants(meta) {
   const result=[];
   for(const exp of [...(meta.files?.exports||[])].sort((a,b)=>String(b.version).localeCompare(String(a.version),undefined,{numeric:true}))) {
-    for(const path of exp.paths||[]) if(/\.(glb|gltf)$/i.test(path)) result.push({path,label:exp.version+' · '+(meta.status==='approved'?'Aprovado':'Para avaliação')});
+    for(const path of exp.paths||[]) if(/\.(glb|gltf)$/i.test(path)) result.push({path,attempt:exp.source_attempt,label:exp.version+' · '+(meta.status==='approved'?'Aprovado':'Para avaliação')});
   }
-  for(const path of meta.files?.source||[]) if(/\.glb$/i.test(path)) result.push({path,label:/geometry/i.test(path)?'Geometria original':'Textura original'});
+  for(const path of meta.files?.source||[]) if(/\.glb$/i.test(path)) result.push({path,attempt:path.match(/source\/(attempt_\d+)/)?.[1],label:(/geometry/i.test(path)?'Geometria original':'Textura original')+' · '+(path.match(/attempt_\d+/)?.[0]||'')});
   return result;
 }
 function preview(item) {
@@ -103,6 +103,8 @@ function enableControls(enabled) {
 function loadVariant(index) {
   const variant=state.variants[index];if(!variant||!state.selected)return;
   state.variant=variant;const url=asset(state.selected.path,variant.path);
+  const attempt=state.selected.meta.attempts?.find(a=>a.id===variant.attempt);
+  renderSpecs({...state.selected.meta,technical:attempt?.technical||state.selected.meta.technical});
   const poster=preview(state.selected);if(poster)viewer.poster=poster;else viewer.removeAttribute('poster');
   viewer.cameraOrbit='0deg 82deg 105%';viewer.cameraTarget='auto auto auto';
   viewer.removeAttribute('auto-rotate');$('rotate').setAttribute('aria-pressed','false');

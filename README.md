@@ -12,7 +12,7 @@ Também é possível executar `py -3 scripts/serve_gallery.py` na raiz. Consulte
 
 - Arquitetura por personagem aplicada em 12/11/2026, com catálogo e guias operacionais.
 - Primeiro personagem gerado e em avaliação (review): chr_001_anime_espadachim.
-- Primeiro modelo GLB texturizado salvo, com prévias renderizadas no Blender 5.2. Custo confirmado: 30 créditos.
+- Versões v001 e v002 preservadas. Atual: v002 sem remesh, textura 4K e closes de avaliação no Blender 5.2. Consumo acumulado confirmado: 60 créditos; saldo consultado: 1.130.
 - Plataforma planejada: Meshy.
 - Modelo de geração inicialmente escolhido: Meshy 7, sujeito à disponibilidade e ao custo exibido na ferramenta utilizada.
 - Estratégia: validar um personagem anime, completar um piloto de seis estilos e então ampliar a coleção.

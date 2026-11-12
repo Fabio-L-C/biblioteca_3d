@@ -1,11 +1,23 @@
-# Referências do personagem
+# Referências por tentativa
 
-Imagens originais usadas na geração Multi-View, preservadas sem alterações. Ordem de entrada: frente, perfil esquerdo corrigido e costas.
+Imagens originais preservadas sem edição posterior. Os prompts estão em ../prompts/.
 
-| Vista | Arquivo local | Origem |
-| --- | --- | --- |
-| Frente | [front_v001.png](front_v001.png) | [Original](https://chatgpt.com/library?file_id=libfile_8928cef6a64481919e58540286f63f75&account_id=personal) |
-| Perfil esquerdo corrigido | [left_profile_v002.png](left_profile_v002.png) | [Original](https://chatgpt.com/library?file_id=libfile_87c8b94596648191bedbb79181fcaaf0&account_id=personal) |
-| Costas | [back_v001.png](back_v001.png) | [Original](https://chatgpt.com/library?file_id=libfile_903d0e28ce3c8191863f0c0097633532&account_id=personal) |
+## Tentativa 002 — atual
 
-A vista lateral anterior, com a bolsa no lado incorreto, não foi usada na geração. Identificadores das imagens e caminhos locais estão em ../metadata.json.
+| Vista | Imagem |
+| --- | --- |
+| Frente, rosto exposto | [front_v002.png](front_v002.png) |
+| Perfil esquerdo | [left_profile_v003.png](left_profile_v003.png) |
+| Costas | [back_v002.png](back_v002.png) |
+
+Ordem de entrada: frente, perfil esquerdo, costas.
+
+## Tentativa 001 — preservada
+
+| Vista | Imagem |
+| --- | --- |
+| Frente | [front_v001.png](front_v001.png) |
+| Perfil esquerdo corrigido | [left_profile_v002.png](left_profile_v002.png) |
+| Costas | [back_v001.png](back_v001.png) |
+
+Identificadores dos originais da primeira tentativa estão em ../metadata.json. A lateral anterior com a bolsa no lado incorreto não foi usada.

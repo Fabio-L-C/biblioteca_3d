@@ -4,7 +4,7 @@
   "name": "Espadachim de fantasia",
   "style": "anime",
   "role": "espadachim",
-  "concept": "Espadachim fictícia adulta de 28 anos, estilo anime, cabelo azul-escuro curto, olhos âmbar, túnica creme, colete azul-marinho, calça escura, botas marrons e proteção leve nos antebraços. Sem arma nas mãos, pose A.",
+  "concept": "Espadachim fictícia adulta de 28 anos, estilo anime, cabelo azul-escuro curto penteado para trás, olhos âmbar e orelhas expostos. Túnica creme, colete azul-marinho, calça escura, botas marrons e proteção leve nos antebraços. Sem arma nas mãos, pose A.",
   "status": "review",
   "created_at": "2026-11-12",
   "updated_at": "2026-11-12",
@@ -101,25 +101,121 @@
         "source/attempt_001/textured_base_color.png"
       ],
       "review_notes": [
-        "GLB aberto no Blender 5.2 e renderizado de frente, lado e costas. Geometria utilizável para testar textura; mãos e rosto ainda exigem avaliação com textura. Aprovação final e rig pendentes."
+        "GLB aberto no Blender 5.2 e renderizado de frente, lado e costas. Geometria utilizável para testar textura; mãos e rosto ainda exigem avaliação com textura. Aprovação final e rig pendentes.",
+        "Reprovado para qualidade visual pelo usuário: artefato retangular na região da orelha, rosto e textura insuficientes."
       ],
       "balance_before": 1190,
-      "balance_after": 1160
+      "balance_after": 1160,
+      "technical": {
+        "polygon_count": 30994,
+        "topology": "triangle",
+        "texture_resolution": "2048x2048 (PNG verificado)",
+        "scale": "Não calibrada; escala gerada pela plataforma",
+        "pose": "A (inspeção visual)",
+        "rig": false
+      }
+    },
+    {
+      "id": "attempt_002",
+      "created_at": "2026-11-12T18:11:54.921Z",
+      "provider": "Meshy",
+      "interface": "local MCP 0.5.2",
+      "model": "meshy-7",
+      "method": "multi_view",
+      "parameters": {
+        "ai_model": "meshy-7",
+        "model_type": "standard",
+        "pose_mode": "a-pose",
+        "should_texture": false,
+        "should_remesh": false,
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "response_format": "json"
+      },
+      "prompt_files": [
+        "prompts/front_v002.txt",
+        "prompts/left_profile_v003.txt",
+        "prompts/back_v002.txt"
+      ],
+      "reference_files": [
+        "references/front_v002.png",
+        "references/left_profile_v003.png",
+        "references/back_v002.png"
+      ],
+      "status": "SUCCEEDED",
+      "operations": [
+        {
+          "type": "multi-image-to-3d",
+          "task_id": "01a1d0f5-8ba4-74a8-82c3-8307fb5a6907",
+          "status": "SUCCEEDED",
+          "estimated_credits": 20,
+          "actual_credits": 20
+        },
+        {
+          "type": "retexture",
+          "task_id": "01a1d0f8-7577-777f-9971-e6eb334e5a6d",
+          "status": "SUCCEEDED",
+          "estimated_credits": 10,
+          "actual_credits": 10,
+          "parameters": {
+            "input_task_id": "01a1d0f5-8ba4-74a8-82c3-8307fb5a6907",
+            "ai_model": "meshy-7",
+            "enable_original_uv": true,
+            "enable_pbr": false,
+            "texture_resolution": "4k",
+            "target_formats": [
+              "glb"
+            ],
+            "response_format": "json"
+          },
+          "notes": "Três vistas locais novas como data URIs; conteúdos binários não registrados nos metadados."
+        }
+      ],
+      "output_files": [
+        "source/attempt_002/geometry.glb",
+        "source/attempt_002/textured.glb",
+        "source/attempt_002/textured_base_color.png"
+      ],
+      "review_notes": [
+        "Referências revisadas para olhos e orelhas expostos; sem acessórios na cabeça. Sem remesh para preservar geometria original. Avaliar cabeça e mãos antes de textura.",
+        "Inspeção de geometria no Blender: bloco retangular junto à orelha não aparece nos closes frontal e três-quartos; contorno do rosto e cabelo mais claro. Dedos ainda têm pouca separação/definição; rig e deformação não validados.",
+        "Inspeção final da textura v002 em close: bloco retangular ausente nos ângulos renderizados. Persistem manchas/contaminação azul no contorno das orelhas e dedos pouco separados. Melhor leitura do rosto, ainda sem aprovação de qualidade ou rig."
+      ],
+      "balance_before": 1160,
+      "technical": {
+        "polygon_count": 514009,
+        "geometry_polygon_count": 514024,
+        "topology": "triangle",
+        "texture_resolution": "4096x4096 (PNG verificado)",
+        "pose": "A (inspeção visual)",
+        "rig": false,
+        "scale": "Não calibrada; escala gerada pela plataforma"
+      },
+      "balance_after_geometry": 1140,
+      "balance_after": 1130
     }
   ],
   "files": {
     "references": [
-      "references/front_v001.png",
-      "references/left_profile_v002.png",
-      "references/back_v001.png"
+      "references/front_v002.png",
+      "references/left_profile_v003.png",
+      "references/back_v002.png"
     ],
     "prompts": [
-      "prompts/front_v001.txt"
+      "prompts/front_v001.txt",
+      "prompts/front_v002.txt",
+      "prompts/left_profile_v003.txt",
+      "prompts/back_v002.txt"
     ],
     "source": [
       "source/attempt_001/geometry.glb",
       "source/attempt_001/textured.glb",
-      "source/attempt_001/textured_base_color.png"
+      "source/attempt_001/textured_base_color.png",
+      "source/attempt_002/geometry.glb",
+      "source/attempt_002/textured.glb",
+      "source/attempt_002/textured_base_color.png"
     ],
     "working": [],
     "exports": [
@@ -129,9 +225,28 @@
         "paths": [
           "exports/v001/chr_001_anime_espadachim_v001.glb"
         ]
+      },
+      {
+        "version": "v002",
+        "source_attempt": "attempt_002",
+        "paths": [
+          "exports/v002/chr_001_anime_espadachim_v002.glb"
+        ]
       }
     ],
     "previews": [
+      "previews/geometry_v002_back.png",
+      "previews/geometry_v002_front.png",
+      "previews/geometry_v002_hand.png",
+      "previews/geometry_v002_head_front.png",
+      "previews/geometry_v002_head_threequarter.png",
+      "previews/geometry_v002_side.png",
+      "previews/textured_v002_back.png",
+      "previews/textured_v002_front.png",
+      "previews/textured_v002_hand.png",
+      "previews/textured_v002_head_front.png",
+      "previews/textured_v002_head_threequarter.png",
+      "previews/textured_v002_side.png",
       "previews/geometry_v001_front.png",
       "previews/geometry_v001_side.png",
       "previews/geometry_v001_back.png",
@@ -141,12 +256,13 @@
     ]
   },
   "technical": {
-    "polygon_count": 30994,
+    "polygon_count": 514009,
+    "geometry_polygon_count": 514024,
     "topology": "triangle",
-    "texture_resolution": "2048x2048 (PNG verificado)",
-    "scale": "Não calibrada; escala gerada pela plataforma",
+    "texture_resolution": "4096x4096 (PNG verificado)",
     "pose": "A (inspeção visual)",
-    "rig": false
+    "rig": false,
+    "scale": "Não calibrada; escala gerada pela plataforma"
   },
   "provenance": {
     "references": [
@@ -157,7 +273,8 @@
         "prompt_file": "prompts/front_v001.txt",
         "location": "Imagem original salva localmente; identidade e versão preservadas nos atributos do arquivo.",
         "local_path": "references/front_v001.png",
-        "library_file_id": "libfile_8928cef6a64481919e58540286f63f75"
+        "library_file_id": "libfile_8928cef6a64481919e58540286f63f75",
+        "status": "previous_attempt"
       },
       {
         "type": "generated_image",
@@ -173,18 +290,46 @@
         "view": "back",
         "location": "Imagem original salva localmente; identidade e versão preservadas nos atributos do arquivo.",
         "local_path": "references/back_v001.png",
-        "library_file_id": "libfile_903d0e28ce3c8191863f0c0097633532"
+        "library_file_id": "libfile_903d0e28ce3c8191863f0c0097633532",
+        "status": "previous_attempt"
       },
       {
         "type": "generated_image",
         "provider": "OpenAI Image Generation",
         "view": "left_profile",
         "revision": "v002",
-        "status": "current",
+        "status": "previous_attempt",
         "location": "Imagem original salva localmente; identidade e versão preservadas nos atributos do arquivo.",
         "local_path": "references/left_profile_v002.png",
         "correction": "Bolsa indevidamente visível removida do perfil esquerdo; pertence ao quadril direito, no lado oculto.",
         "library_file_id": "libfile_87c8b94596648191bedbb79181fcaaf0"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "front",
+        "local_path": "references/front_v002.png",
+        "prompt_file": "prompts/front_v002.txt",
+        "status": "current",
+        "location": "Imagem gerada nesta conversa e salva diretamente para uso na tentativa 002."
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "left_profile",
+        "local_path": "references/left_profile_v003.png",
+        "prompt_file": "prompts/left_profile_v003.txt",
+        "status": "current",
+        "location": "Imagem gerada nesta conversa e salva diretamente para uso na tentativa 002."
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "back",
+        "local_path": "references/back_v002.png",
+        "prompt_file": "prompts/back_v002.txt",
+        "status": "current",
+        "location": "Imagem gerada nesta conversa e salva diretamente para uso na tentativa 002."
       }
     ],
     "generation_tool": null,
@@ -196,6 +341,9 @@
     "Usuário aprovou o visual frontal. Vistas lateral e traseira geradas na conversa. Revisar posição da bolsa na vista lateral antes de usar Multi-View; referência lateral mostra a bolsa apesar do perfil esquerdo solicitado. Nenhuma tarefa 3D enviada nesta etapa.",
     "Perfil esquerdo v002 revisado visualmente: bolsa indevida removida. Vista lateral anterior preservada como superseded. Nenhuma tarefa Meshy enviada.",
     "Primeiro GLB texturizado gerado e aberto no Blender 5.2. Cores da roupa preservadas. Rosto/franja com oclusão de um olho e pouca definição facial; dedos precisam de inspeção próxima e possível correção. Sem rig, teste de deformações ou validação no motor de jogo.",
-    "Três referências efetivamente usadas na geração salvas localmente, sem alteração dos PNGs: frente v001, perfil esquerdo corrigido v002 e costas v001."
+    "Três referências efetivamente usadas na geração salvas localmente, sem alteração dos PNGs: frente v001, perfil esquerdo corrigido v002 e costas v001.",
+    "Avaliação do usuário: qualidade baixa, textura ruim e bloco retangular indevido junto à orelha. Resultado inadequado para aprovação. Remesh automático com alvo de 30 mil pode ter perdido detalhes, mas a causa do artefato não foi isolada. Próxima comparação deve preservar geometria sem remesh e revisar cabeça antes de texturizar.",
+    "Tentativa 002: geometria sem remesh e textura 4K. No close da malha não aparece o bloco retangular da versão anterior; rosto e olhos agora expostos. Malha detalhada para avaliação; mãos ainda limitadas e sem teste de rig/deformação. Aprovação visual final pendente do usuário.",
+    "Inspeção final da textura v002 em close: bloco retangular ausente nos ângulos renderizados. Persistem manchas/contaminação azul no contorno das orelhas e dedos pouco separados. Melhor leitura do rosto, ainda sem aprovação de qualidade ou rig."
   ]
 }

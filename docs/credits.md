@@ -19,10 +19,12 @@ A estimativa registrada para Meshy 7 com textura é de 35 créditos por tentativ
 
 ## Registro de consumo
 
-Consumo confirmado desta primeira tentativa: 30 créditos. Saldo consultado após geometria e textura em 2026-11-12: 1.160 créditos. Estes registros não representam o histórico completo da conta.
+Consumo confirmado das duas tentativas: 60 créditos. Saldo consultado após geometria e textura da segunda tentativa em 2026-11-12: 1.130 créditos. Estes registros não representam o histórico completo da conta.
 
 | Data | Personagem | Tentativa | Operação / ID da tarefa | Estimativa | Custo efetivo | Fonte / situação |
 | --- | --- | --- | --- | ---: | ---: | --- |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_002 | Retexture 4K / 01a1d0f8-7577-777f-9971-e6eb334e5a6d | 10 | 10 | SUCCEEDED; confirmado pela API |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_002 | Multi-image to 3D / 01a1d0f5-8ba4-74a8-82c3-8307fb5a6907 | 20 | 20 | SUCCEEDED; sem remesh |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_001 | Multi-image to 3D / 01a1d0cb-6bc2-7238-8216-16fd3d6a901f | 20 | 20 | SUCCEEDED; confirmado pela API |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_001 | Retexture / 01a1d0ce-69ea-7333-ae03-fb9ede2be19b | 10 | 10 | SUCCEEDED; confirmado pela API |
 
@@ -39,3 +41,7 @@ Ao executar uma operação, adicionar uma linha. Usar “desconhecido” para cu
 ## Verificação de conexão — 2026-11-12
 
 Servidor local @meshy-ai/meshy-mcp-server 0.5.2 encontrado instalado. Inicialização MCP validada, com 24 ferramentas anunciadas. Consulta autenticada de saldo concluída: 1.190 créditos. A divisão entre créditos mensais e permanentes e a data de reset continuam não verificadas. Nenhuma geração foi iniciada nesta verificação. A chave existente foi preservada e não foi registrada no projeto.
+
+## Segunda tentativa — 2026-11-12
+
+Geometria sem remesh: 20 créditos. Textura 4K: 10 créditos. Total desta tentativa: 30 créditos. Total confirmado do projeto: 60 créditos. Saldo após a segunda tentativa: 1.130 créditos. Sem rig ou compra de créditos.
