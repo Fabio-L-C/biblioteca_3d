@@ -5,8 +5,8 @@ Repositório para criar, documentar, avaliar e guardar modelos 3D de personagens
 ## Estado atual
 
 - Arquitetura por personagem aplicada em 12/11/2026, com catálogo e guias operacionais.
-- Primeiro personagem cadastrado como planned: chr_001_anime_espadachim.
-- Conceito e prompt do primeiro personagem preparados; referência frontal gerada na conversa. Nenhum modelo 3D gerado até o momento.
+- Primeiro personagem gerado e em avaliação (review): chr_001_anime_espadachim.
+- Primeiro modelo GLB texturizado salvo, com prévias renderizadas no Blender 5.2. Custo confirmado: 30 créditos.
 - Plataforma planejada: Meshy.
 - Modelo de geração inicialmente escolhido: Meshy 7, sujeito à disponibilidade e ao custo exibido na ferramenta utilizada.
 - Estratégia: validar um personagem anime, completar um piloto de seis estilos e então ampliar a coleção.
@@ -68,7 +68,7 @@ Usar characters/<id>/, com estas subpastas conforme forem necessárias:
 - exports/v001/: uma versão destinada aos projetos de uso, com texturas e dependências.
 - previews/: capturas e imagens para avaliação.
 
-Cada personagem tem README.md e metadata.json próprios. O primeiro cadastro está em [characters/chr_001_anime_espadachim/README.md](characters/chr_001_anime_espadachim/README.md), ainda sem modelos ou referências. As pastas de tentativas e versões são criadas quando houver trabalho correspondente.
+Cada personagem tem README.md e metadata.json próprios. O primeiro cadastro está em [characters/chr_001_anime_espadachim/README.md](characters/chr_001_anime_espadachim/README.md), com modelo GLB e prévias; as três referências originais estão salvas na pasta references/ do personagem. As pastas de tentativas e versões são criadas quando houver trabalho correspondente.
 
 ## Convenções
 

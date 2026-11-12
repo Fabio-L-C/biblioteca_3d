@@ -19,10 +19,12 @@ A estimativa registrada para Meshy 7 com textura é de 35 créditos por tentativ
 
 ## Registro de consumo
 
-Nenhuma operação paga foi executada neste projeto. O consumo registrado do projeto é zero; isso não representa o histórico de uso da conta nem confirma seu saldo.
+Consumo confirmado desta primeira tentativa: 30 créditos. Saldo consultado após geometria e textura em 2026-11-12: 1.160 créditos. Estes registros não representam o histórico completo da conta.
 
 | Data | Personagem | Tentativa | Operação / ID da tarefa | Estimativa | Custo efetivo | Fonte / situação |
 | --- | --- | --- | --- | ---: | ---: | --- |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_001 | Multi-image to 3D / 01a1d0cb-6bc2-7238-8216-16fd3d6a901f | 20 | 20 | SUCCEEDED; confirmado pela API |
+| 2026-11-12 | chr_001_anime_espadachim | attempt_001 | Retexture / 01a1d0ce-69ea-7333-ae03-fb9ede2be19b | 10 | 10 | SUCCEEDED; confirmado pela API |
 
 Ao executar uma operação, adicionar uma linha. Usar “desconhecido” para custo efetivo sem confirmação. Registrar gerações, texturas e outras operações separadamente; uma mesma tarefa não pode ser contabilizada duas vezes.
 

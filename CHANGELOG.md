@@ -4,28 +4,33 @@ Histórico de alterações relevantes na estrutura, documentação e coleção d
 
 ## [Unreleased]
 
-### Configurado — 2026-11-12
+### Adicionado
 
-- Git inicializado na branch main e origin configurado para https://github.com/Fabio-L-C/biblioteca_3d.git.
-- .gitignore adicionado para credenciais, configurações locais e arquivos temporários.
-- Nenhum commit ou push realizado nesta configuração.
+- Três PNGs originais usados na geração salvos na pasta de referências do primeiro personagem: front_v001.png, left_profile_v002.png e back_v001.png. Metadados e links locais atualizados.
 
-### Verificado
+### Próximas etapas
 
-- Instalação local existente do Meshy MCP 0.5.2 inicializada com sucesso; 24 ferramentas anunciadas e consulta autenticada de saldo retornando 1.190 créditos.
-- Chave local existente preservada; nenhuma credencial incluída no projeto e nenhuma geração iniciada nesta verificação.
+- Avaliar o primeiro modelo: rosto, franja, mãos e adequação ao uso.
+- Testar rig e deformações conforme a finalidade.
+- Completar o piloto de seis estilos após a avaliação.
 
-### Em andamento
+## [0.3.0] - 2026-11-12
 
-- Primeiro personagem: conceito e prompt frontal registrados; referência frontal gerada na conversa, ainda sem cópia local.
-- Conversão 3D pendente: Meshy não exposto nas ferramentas e navegador indisponível nesta sessão. Nenhuma tarefa paga Meshy iniciada.
+### Adicionado
 
-### Planejado
+- Primeiro modelo de espadachim anime, gerado por Multi-View e texturizado em 2K; originais preservados e exportação v001 em GLB.
+- Prévias de avaliação no Blender 5.2 e script scripts/render_character.py.
+- Links persistentes das referências originais em references/README.md do personagem; cópias locais das imagens de entrada salvas posteriormente, com metadados preservados no Windows.
+- IDs de tarefas, parâmetros e custos efetivos: 20 créditos de geometria e 10 de textura. Saldo consultado: 1.160.
 
-- Preparar as referências do primeiro personagem anime adulto.
-- Validar o fluxo de geração, revisar o resultado e registrar o custo efetivo.
-- Completar o piloto com um personagem de cada um dos seis estilos.
-- Ampliar a coleção conforme a qualidade dos resultados e o saldo disponível.
+### Avaliação
+
+- Estado review: sem rig ou teste de deformações; rosto, franja e dedos precisam de revisão.
+
+### Configuração do projeto
+
+- Git inicializado e origin configurado em trabalho anterior para https://github.com/Fabio-L-C/biblioteca_3d.git; .gitignore para credenciais e temporários preservado.
+- Meshy MCP 0.5.2 validado localmente. Nenhum commit ou push executado nesta etapa de geração.
 
 ## [0.2.0] - 2026-11-12
 

@@ -5,12 +5,12 @@
   "style": "anime",
   "role": "espadachim",
   "concept": "Espadachim fictícia adulta de 28 anos, estilo anime, cabelo azul-escuro curto, olhos âmbar, túnica creme, colete azul-marinho, calça escura, botas marrons e proteção leve nos antebraços. Sem arma nas mãos, pose A.",
-  "status": "planned",
+  "status": "review",
   "created_at": "2026-11-12",
   "updated_at": "2026-11-12",
-  "provider": null,
-  "interface": null,
-  "model": null,
+  "provider": "Meshy",
+  "interface": "local MCP 0.5.2",
+  "model": "meshy-7",
   "planned_generation": {
     "provider": "Meshy",
     "model": "Meshy 7",
@@ -18,24 +18,135 @@
     "pose": "A",
     "notes": "Confirmar disponibilidade, custo e consistência das referências antes de executar."
   },
-  "attempts": [],
+  "attempts": [
+    {
+      "id": "attempt_001",
+      "created_at": "2026-11-12T17:25:54.693Z",
+      "provider": "Meshy",
+      "interface": "local MCP 0.5.2",
+      "model": "meshy-7",
+      "method": "multi_view",
+      "parameters": {
+        "ai_model": "meshy-7",
+        "model_type": "standard",
+        "pose_mode": "a-pose",
+        "should_texture": false,
+        "should_remesh": true,
+        "topology": "triangle",
+        "target_polycount": 30000,
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "response_format": "json"
+      },
+      "prompt_files": [
+        "prompts/front_v001.txt"
+      ],
+      "reference_files": [
+        "references/front_v001.png",
+        "references/left_profile_v002.png",
+        "references/back_v001.png"
+      ],
+      "reference_library_files": [
+        {
+          "view": "front",
+          "library_file_id": "libfile_8928cef6a64481919e58540286f63f75",
+          "file_name": "Guerreira fantástica em pose frontal.png"
+        },
+        {
+          "view": "left_profile",
+          "library_file_id": "libfile_87c8b94596648191bedbb79181fcaaf0",
+          "file_name": "Guerreira de túnica em perfil esquerdo.png"
+        },
+        {
+          "view": "back",
+          "library_file_id": "libfile_903d0e28ce3c8191863f0c0097633532",
+          "file_name": "Espadachim adulta em vista traseira.png"
+        }
+      ],
+      "status": "SUCCEEDED",
+      "operations": [
+        {
+          "type": "multi-image-to-3d",
+          "task_id": "01a1d0cb-6bc2-7238-8216-16fd3d6a901f",
+          "status": "SUCCEEDED",
+          "estimated_credits": 20,
+          "actual_credits": 20,
+          "notes": "Requisição única; em caso de timeout consultar tarefas antes de reenviar."
+        },
+        {
+          "type": "retexture",
+          "task_id": "01a1d0ce-69ea-7333-ae03-fb9ede2be19b",
+          "status": "SUCCEEDED",
+          "estimated_credits": 10,
+          "actual_credits": 10,
+          "parameters": {
+            "input_task_id": "01a1d0cb-6bc2-7238-8216-16fd3d6a901f",
+            "ai_model": "meshy-7",
+            "enable_original_uv": true,
+            "enable_pbr": false,
+            "texture_resolution": "2k",
+            "target_formats": [
+              "glb"
+            ],
+            "response_format": "json"
+          },
+          "notes": "Textura 2K guiada pelas três vistas originais; URLs temporárias não registradas."
+        }
+      ],
+      "output_files": [
+        "source/attempt_001/geometry.glb",
+        "source/attempt_001/textured.glb",
+        "source/attempt_001/textured_base_color.png"
+      ],
+      "review_notes": [
+        "GLB aberto no Blender 5.2 e renderizado de frente, lado e costas. Geometria utilizável para testar textura; mãos e rosto ainda exigem avaliação com textura. Aprovação final e rig pendentes."
+      ],
+      "balance_before": 1190,
+      "balance_after": 1160
+    }
+  ],
   "files": {
-    "references": [],
+    "references": [
+      "references/front_v001.png",
+      "references/left_profile_v002.png",
+      "references/back_v001.png"
+    ],
     "prompts": [
       "prompts/front_v001.txt"
     ],
-    "source": [],
+    "source": [
+      "source/attempt_001/geometry.glb",
+      "source/attempt_001/textured.glb",
+      "source/attempt_001/textured_base_color.png"
+    ],
     "working": [],
-    "exports": [],
-    "previews": []
+    "exports": [
+      {
+        "version": "v001",
+        "source_attempt": "attempt_001",
+        "paths": [
+          "exports/v001/chr_001_anime_espadachim_v001.glb"
+        ]
+      }
+    ],
+    "previews": [
+      "previews/geometry_v001_front.png",
+      "previews/geometry_v001_side.png",
+      "previews/geometry_v001_back.png",
+      "previews/textured_v001_front.png",
+      "previews/textured_v001_side.png",
+      "previews/textured_v001_back.png"
+    ]
   },
   "technical": {
-    "polygon_count": null,
-    "topology": null,
-    "texture_resolution": null,
-    "scale": null,
-    "pose": null,
-    "rig": null
+    "polygon_count": 30994,
+    "topology": "triangle",
+    "texture_resolution": "2048x2048 (PNG verificado)",
+    "scale": "Não calibrada; escala gerada pela plataforma",
+    "pose": "A (inspeção visual)",
+    "rig": false
   },
   "provenance": {
     "references": [
@@ -44,8 +155,36 @@
         "provider": "OpenAI Image Generation",
         "view": "front",
         "prompt_file": "prompts/front_v001.txt",
-        "location": "Imagem exibida na conversa em 2026-11-12; sem cópia local neste momento.",
-        "local_path": null
+        "location": "Imagem original salva localmente; identidade e versão preservadas nos atributos do arquivo.",
+        "local_path": "references/front_v001.png",
+        "library_file_id": "libfile_8928cef6a64481919e58540286f63f75"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "left_profile",
+        "location": "Imagem gerada e exibida na conversa em 2026-11-12; cópia local pendente.",
+        "local_path": null,
+        "status": "superseded"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "back",
+        "location": "Imagem original salva localmente; identidade e versão preservadas nos atributos do arquivo.",
+        "local_path": "references/back_v001.png",
+        "library_file_id": "libfile_903d0e28ce3c8191863f0c0097633532"
+      },
+      {
+        "type": "generated_image",
+        "provider": "OpenAI Image Generation",
+        "view": "left_profile",
+        "revision": "v002",
+        "status": "current",
+        "location": "Imagem original salva localmente; identidade e versão preservadas nos atributos do arquivo.",
+        "local_path": "references/left_profile_v002.png",
+        "correction": "Bolsa indevidamente visível removida do perfil esquerdo; pertence ao quadril direito, no lado oculto.",
+        "library_file_id": "libfile_87c8b94596648191bedbb79181fcaaf0"
       }
     ],
     "generation_tool": null,
@@ -53,6 +192,10 @@
   },
   "review_notes": [
     "Produção autorizada pelo usuário. Nenhuma ferramenta Meshy exposta nesta sessão; busca de plugin sem resultados. Acesso ao navegador falhou ao inicializar. Preparação de referência visual iniciada; nenhuma tarefa 3D enviada.",
-    "Referência frontal gerada: corpo inteiro, pose A e membros separados. Vistas de perfil e costas ainda não preparadas. Conversão 3D bloqueada por falta de acesso ao Meshy. Estado planned mantido; attempts continua vazio."
+    "Referência frontal gerada: corpo inteiro, pose A e membros separados. Vistas de perfil e costas ainda não preparadas. Conversão 3D bloqueada por falta de acesso ao Meshy. Estado planned mantido; attempts continua vazio.",
+    "Usuário aprovou o visual frontal. Vistas lateral e traseira geradas na conversa. Revisar posição da bolsa na vista lateral antes de usar Multi-View; referência lateral mostra a bolsa apesar do perfil esquerdo solicitado. Nenhuma tarefa 3D enviada nesta etapa.",
+    "Perfil esquerdo v002 revisado visualmente: bolsa indevida removida. Vista lateral anterior preservada como superseded. Nenhuma tarefa Meshy enviada.",
+    "Primeiro GLB texturizado gerado e aberto no Blender 5.2. Cores da roupa preservadas. Rosto/franja com oclusão de um olho e pouca definição facial; dedos precisam de inspeção próxima e possível correção. Sem rig, teste de deformações ou validação no motor de jogo.",
+    "Três referências efetivamente usadas na geração salvas localmente, sem alteração dos PNGs: frente v001, perfil esquerdo corrigido v002 e costas v001."
   ]
 }
