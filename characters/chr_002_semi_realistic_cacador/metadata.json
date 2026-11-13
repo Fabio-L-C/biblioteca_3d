@@ -5,7 +5,7 @@
   "style": "semi_realistic",
   "role": "caçador de monstros",
   "concept": "Caçador fictício adulto semi-realista, colete de couro oliva, camisa ocre e armadura leve simétrica. Segundo estilo do piloto.",
-  "status": "planned",
+  "status": "references_ready",
   "created_at": "2026-11-13",
   "updated_at": "2026-11-13",
   "provider": "Meshy",
@@ -18,23 +18,98 @@
   },
   "attempts": [],
   "files": {
-    "references": [],
+    "references": [
+      "references/front_v001.png",
+      "references/left_profile_v001.png",
+      "references/back_v001.png",
+      "references/right_profile_v001.png"
+    ],
     "prompts": [
       "prompts/front_v001.txt",
-      "prompts/back_v001.txt"
+      "prompts/front_v002.txt",
+      "prompts/back_v001.txt",
+      "prompts/back_v002.txt",
+      "prompts/left_profile_v001.txt",
+      "prompts/right_profile_v001.txt"
     ],
     "source": [],
-    "working": [],
+    "working": [
+      "working/front_v001.base64",
+      "working/front_v001_incomplete.png",
+      "working/meshy_submission_20261113.json"
+    ],
     "exports": [],
-    "previews": []
+    "previews": [
+      "references/front_v001.png"
+    ]
   },
   "technical": {
     "rig": false
   },
   "provenance": {
-    "references": []
+    "references": [
+      {
+        "view": "front",
+        "local_path": "references/front_v001.png",
+        "tool": "image_gen.imagegen",
+        "generated_at": "2026-11-13",
+        "prompt_file": "prompts/front_v002.txt",
+        "dimensions": [
+          1199,
+          1312
+        ],
+        "usage_conditions": "Geradas para este projeto; condições de uso não verificadas nesta etapa."
+      },
+      {
+        "view": "left_profile",
+        "local_path": "references/left_profile_v001.png",
+        "tool": "image_gen.imagegen",
+        "generated_at": "2026-11-13",
+        "prompt_file": "prompts/left_profile_v001.txt",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "usage_conditions": "Geradas para este projeto; condições de uso não verificadas nesta etapa."
+      },
+      {
+        "view": "back",
+        "local_path": "references/back_v001.png",
+        "tool": "image_gen.imagegen",
+        "generated_at": "2026-11-13",
+        "prompt_file": "prompts/back_v002.txt",
+        "dimensions": [
+          1199,
+          1312
+        ],
+        "usage_conditions": "Geradas para este projeto; condições de uso não verificadas nesta etapa."
+      },
+      {
+        "view": "right_profile",
+        "local_path": "references/right_profile_v001.png",
+        "tool": "image_gen.imagegen",
+        "generated_at": "2026-11-13",
+        "prompt_file": "prompts/right_profile_v001.txt",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "usage_conditions": "Geradas para este projeto; condições de uso não verificadas nesta etapa."
+      }
+    ]
   },
   "review_notes": [
-    "Conceito e referência frontal preparados. Vistas complementares em produção; nenhuma tarefa Meshy criada."
+    "2026-11-13: arquivo frontal herdado incompleto (IDAT truncado), preservado em working; nova frente e vistas complementares geradas.",
+    "Quatro PNGs individuais revisados visualmente: adulto fictício, identidade e roupa coerentes, braços horizontais em T-pose, mãos de perfil sem rotação para a câmera, sem acessórios pendentes. Pequenas variações de enquadramento e detalhes de costura entre vistas; não representam um escaneamento calibrado.",
+    "Conjunto references_ready. Nenhuma tarefa Meshy criada: MCP não exposto nesta sessão. Confirmar modelo e custo na integração disponível antes de enviar; nenhum crédito Meshy consumido nesta etapa.",
+    "2026-11-13: quatro referências novamente inspecionadas. MCP 0.6.11 inicializado com suporte a Meshy 7.1 Ultra 2K; envio de geometria falhou com connect EACCES, sem ID. Situação da solicitação e custo efetivo não confirmados; consultar tarefas antes de reenviar. Estado references_ready preservado; attempts continua vazio porque nenhuma geração foi confirmada."
+  ],
+  "generation_requests": [
+    {
+      "record_file": "working/meshy_submission_20261113.json",
+      "status": "unconfirmed",
+      "task_id": null,
+      "reconciliation_required": true
+    }
   ]
 }

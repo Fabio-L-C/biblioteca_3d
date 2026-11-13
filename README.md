@@ -13,6 +13,7 @@ Também é possível executar `py -3 scripts/serve_gallery.py` na raiz. Consulte
 - Arquitetura por personagem aplicada em 12/11/2026, com catálogo e guias operacionais.
 - Primeiro personagem gerado e em avaliação (review): chr_001_anime_espadachim.
 - v006 em T-pose disponível: correção local dos apêndices sob as orelhas da v005 no Blender, preservando textura N1 2K e versões anteriores. Estado review, sem rig. Nenhum crédito Meshy usado na correção. Cópias v007/v008 com rig de 66 articulações e dedos disponíveis para teste; v008 reúne caminhada/corrida em um GLB e tem arquivo Blender editável. Consumo acumulado: 175; saldo consultado em 13/11: 1.015 (575 mensais + 440 permanentes).
+- Segundo personagem: [caçador semi-realista](characters/chr_002_semi_realistic_cacador/README.md), com quatro referências em T-pose prontas; conversão 3D pendente.
 - Plataforma planejada: Meshy.
 - Seleção atual para máxima fidelidade geométrica: Meshy 7.1, Ultra 2K multivista e sem remesh; reavaliar modelos por tarefa.
 - Estratégia: validar um personagem anime, completar um piloto de seis estilos e então ampliar a coleção.

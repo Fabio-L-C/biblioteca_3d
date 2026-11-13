@@ -4,6 +4,24 @@ Histórico de alterações relevantes na estrutura, documentação e coleção d
 
 ## [Unreleased]
 
+### Nova verificação da integração - 2026-11-13
+
+- Servidor MCP local 0.6.11 inicializado; consulta `meshy_list_tasks` do caçador voltou a falhar com `connect EACCES` na conexão HTTPS. Inicialização local não confirma acesso à API.
+- Verificação registrada em `working/meshy_submission_20261113.json` do personagem. Nenhum reenvio realizado; estado remoto e custo efetivo continuam desconhecidos.
+
+### Envio do caçador bloqueado pela rede — 2026-11-13
+
+- Quatro vistas novamente inspecionadas; MCP 0.6.11 inicializado e parâmetros Meshy 7.1 Ultra 2K confirmados na ferramenta e documentação.
+- Solicitação de geometria sem remesh/textura falhou com connect EACCES, sem ID de tarefa. Estado remoto e custo efetivo desconhecidos; nenhuma geração confirmada.
+- Solicitação e necessidade de consultar tarefas antes de reenviar registradas nos metadados; personagem permanece references_ready.
+
+### Referências do caçador semi-realista — 2026-11-13
+
+- Retomada a preparação do segundo personagem: quatro vistas individuais em T-pose geradas, revisadas visualmente e verificadas como PNGs completos.
+- Arquivo frontal incompleto herdado preservado em working; conjunto válido, prompts e procedência registrados na ficha e nos metadados.
+- Personagem adicionado ao catálogo como references_ready, disponível na galeria com suas referências.
+- Nenhuma tarefa Meshy criada e nenhum crédito Meshy consumido. Conversão 3D pendente: integração MCP não disponível nesta sessão.
+
 ### Animações reunidas v008 — 2026-11-13
 
 - Caminhada e corrida reunidas em um único GLB, com clipes nomeados para troca na galeria sem recarregar a malha. v006 detalhada e v007 separada preservadas.

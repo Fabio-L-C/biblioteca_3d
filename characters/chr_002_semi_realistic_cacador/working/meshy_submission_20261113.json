@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-13",
+  "provider": "Meshy",
+  "interface": "MCP stdio 0.6.11",
+  "operation": "multi-image-to-3d",
+  "status": "unconfirmed",
+  "task_id": null,
+  "parameters": {
+    "ai_model": "meshy-7.1",
+    "geometry_resolution": "2k",
+    "should_remesh": false,
+    "should_texture": false,
+    "image_enhancement": false,
+    "target_formats": [
+      "glb"
+    ]
+  },
+  "reference_files": [
+    "references/front_v001.png",
+    "references/left_profile_v001.png",
+    "references/back_v001.png",
+    "references/right_profile_v001.png"
+  ],
+  "estimated_credits": 25,
+  "actual_credits": null,
+  "reason": "Maior detalhe multivista disponível na documentação e no schema MCP 0.6.11; preservar T-pose sem normalização automática. Não há prompt de geometria neste endpoint.",
+  "error": "connect EACCES na conexão HTTPS. Nenhum ID retornado.",
+  "reconciliation_required": true,
+  "next_action": "Consultar tarefas multi-image-to-3d antes de reenviar. Não presumir criação, cobrança ou reembolso.",
+  "reconciliation_result": "Consulta meshy_list_tasks (multi-image-to-3d) também falhou com connect EACCES; nenhum reenvio executado.",
+  "reconciliation_checks": [
+    {
+      "checked_at": "2026-11-13T15:09:06.468Z",
+      "interface": "MCP stdio 0.6.11",
+      "operation": "meshy_list_tasks",
+      "parameters": {
+        "task_type": "multi-image-to-3d",
+        "limit": 10,
+        "response_format": "json"
+      },
+      "result": "failed",
+      "error": "Network error: connect EACCES na conexão HTTPS (443).",
+      "new_submission": false
+    }
+  ]
+}

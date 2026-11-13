@@ -68,3 +68,7 @@ Tarefa geométrica existente retomada sem recriação. Geometria: 25 créditos; 
 ## Rig v007 — 2026-11-13
 
 Rig com dedos: 5 créditos. Caminhada e corrida incluídas. Redução local no Blender: sem custo Meshy. Acumulado: 175. Saldo: 1.015 (575 mensais + 440 permanentes); próximo reset retornado: 2026-11-24T11:54:46.000Z.
+
+## Solicitação do caçador sem confirmação — 2026-11-13
+
+Geometria multivista Meshy 7.1 Ultra 2K: estimativa de 25 créditos pelo schema MCP 0.6.11. Solicitação falhou com `connect EACCES`, sem ID retornado. Custo efetivo e estado remoto desconhecidos; não adicionados ao acumulado confirmado de 175. Consultar tarefas antes de reenviar. Registro: [solicitação](../characters/chr_002_semi_realistic_cacador/working/meshy_submission_20261113.json). O saldo de 1.015 foi consultado antes deste envio e não constitui uma consulta posterior.

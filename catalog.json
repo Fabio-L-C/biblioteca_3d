@@ -9,6 +9,14 @@
       "role": "espadachim",
       "status": "review",
       "path": "characters/chr_001_anime_espadachim"
+    },
+    {
+      "id": "chr_002_semi_realistic_cacador",
+      "name": "Caçador de monstros",
+      "style": "semi_realistic",
+      "role": "caçador de monstros",
+      "status": "references_ready",
+      "path": "characters/chr_002_semi_realistic_cacador"
     }
   ]
 }
