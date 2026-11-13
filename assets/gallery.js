@@ -22,9 +22,9 @@ function message(text, {busy=false,retry=false}={}) {
 function getVariants(meta) {
   const result=[];
   for(const exp of [...(meta.files?.exports||[])].sort((a,b)=>Number(b.version===meta.preferred_export)-Number(a.version===meta.preferred_export)||String(b.version).localeCompare(String(a.version),undefined,{numeric:true}))) {
-    for(const path of exp.paths||[]) if(/\.(glb|gltf)$/i.test(path)) result.push({path,attempt:exp.source_attempt,technical:exp.technical,label:exp.label||exp.version+' · '+(meta.status==='approved'?'Aprovado':'Para avaliação')});
+    for(const path of exp.paths||[]) if(/\.(glb|gltf)$/i.test(path)) result.push({path,attempt:exp.source_attempt,technical:meta.file_technical?.[path]||exp.technical,label:exp.labels?.[path]||exp.label||exp.version+' · '+(meta.status==='approved'?'Aprovado':'Para avaliação')});
   }
-  for(const path of meta.files?.source||[]) if(/\.glb$/i.test(path)) result.push({path,technical:meta.file_technical?.[path],attempt:path.match(/source\/(attempt_\d+)/)?.[1],label:(/geometry/i.test(path)?'Geometria original':/textured_n1/i.test(path)?'Comparação N1':'Textura original')+' · '+(path.match(/attempt_\d+/)?.[0]||'')});
+  for(const path of meta.files?.source||[]) if(/\.glb$/i.test(path)) result.push({path,technical:meta.file_technical?.[path],attempt:path.match(/source\/(attempt_\d+)/)?.[1],label:(/rig_v007\/rigged/i.test(path)?'Rig original':/rig_v007\/walk/i.test(path)?'Caminhada original':/rig_v007\/run/i.test(path)?'Corrida original':/geometry/i.test(path)?'Geometria original':/textured_n1/i.test(path)?'Comparação N1':'Textura original')+' · '+(path.match(/attempt_\d+/)?.[0]||'')});
   return result;
 }
 function preview(item) {
@@ -104,6 +104,7 @@ function enableControls(enabled) {
 function loadVariant(index) {
   const variant=state.variants[index];if(!variant||!state.selected)return;
   state.variant=variant;const url=asset(state.selected.path,variant.path);
+  viewer.pause();$('animation-controls').hidden=true;viewer.removeAttribute('animation-name');
   const attempt=state.selected.meta.attempts?.find(a=>a.id===variant.attempt);
   renderSpecs({...state.selected.meta,technical:variant.technical||attempt?.technical||state.selected.meta.technical});
   const poster=preview(state.selected);if(poster)viewer.poster=poster;else viewer.removeAttribute('poster');
@@ -115,7 +116,15 @@ function loadVariant(index) {
   message(state.libraryReady?'Carregando modelo 3D…':'Preparando visualizador…',{busy:true});enableControls(false);
   viewer.src=url;
 }
-viewer.addEventListener('load',()=>{$('viewer-message').hidden=true;$('progress-bar').hidden=true;enableControls(true);});
+function updateAnimations() {
+  const clips=viewer.availableAnimations||[];
+  $('animations').replaceChildren();$('animation-controls').hidden=!clips.length;
+  for(const clip of clips){const option=el('option','',clip);option.value=clip;$('animations').append(option);}
+  if(clips.length){viewer.animationName=clips[0];viewer.currentTime=0;viewer.play();$('animation-toggle').textContent='Pausar animação';$('animation-toggle').setAttribute('aria-pressed','true');}
+}
+viewer.addEventListener('load',()=>{$('viewer-message').hidden=true;$('progress-bar').hidden=true;enableControls(true);updateAnimations();});
+$('animations').addEventListener('change',()=>{viewer.animationName=$('animations').value;viewer.currentTime=0;viewer.play();$('animation-toggle').textContent='Pausar animação';$('animation-toggle').setAttribute('aria-pressed','true');});
+$('animation-toggle').addEventListener('click',()=>{if(viewer.paused){viewer.play();$('animation-toggle').textContent='Pausar animação';$('animation-toggle').setAttribute('aria-pressed','true');}else{viewer.pause();$('animation-toggle').textContent='Reproduzir animação';$('animation-toggle').setAttribute('aria-pressed','false');}});
 viewer.addEventListener('error',()=>{message('Não foi possível carregar o modelo. Verifique o arquivo e tente novamente.',{retry:true});enableControls(false);});
 viewer.addEventListener('progress',event=>{const progress=event.detail.totalProgress;$('progress-bar').hidden=progress>=1;$('progress-bar').firstElementChild.style.width=(progress*100)+'%';});
 $('retry').addEventListener('click',()=>{const src=viewer.src;viewer.removeAttribute('src');requestAnimationFrame(()=>{viewer.src=src;message('Carregando modelo 3D…',{busy:true});});});

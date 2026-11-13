@@ -1,0 +1,32 @@
+{
+  "version": "v007",
+  "source_version": "v006",
+  "source_attempt": "attempt_005",
+  "created_at": "2026-11-13",
+  "status": "SUCCEEDED",
+  "authorization": "Usuário autorizou explicitamente envio da cópia completa e rig por 5 créditos em 2026-11-13.",
+  "balance_before": 1020,
+  "operations": [
+    {
+      "type": "rigging",
+      "task_id": "01a1d4f8-3c0f-7109-96ba-c88ee312c183",
+      "status": "SUCCEEDED",
+      "estimated_credits": 5,
+      "actual_credits": 5,
+      "parameters": {
+        "height_meters": 1.7,
+        "include_fingers": true,
+        "skeleton_template": "meshyrig",
+        "local_model": "working/rig_test_v007/rig_input.glb"
+      },
+      "interface": "Meshy REST API; MCP transport fallback"
+    }
+  ],
+  "balance_after": 1015,
+  "output_files": [
+    "source/attempt_005/rig_v007/rigged.glb",
+    "source/attempt_005/rig_v007/rigged.fbx",
+    "source/attempt_005/rig_v007/walk.glb",
+    "source/attempt_005/rig_v007/run.glb"
+  ]
+}

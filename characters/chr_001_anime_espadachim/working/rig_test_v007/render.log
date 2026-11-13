@@ -1,0 +1,19 @@
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20261010
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+addon_utils.disable: bl_ext.lab_blender_org.mcp not enabled
+09:36:30 | INFO: Data are loaded, start creating Blender stuff
+09:36:30 | INFO: Blender create Mesh node geometry_0
+09:36:31 | INFO: glTF import finished in 0.83s
+C:\Users\fabio\Documents\projetos\biblioteca_3d\scripts\render_character_tpose.py:27: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes = True
+00:14.125  render           | Saved: 'C:\Users\fabio\Documents\projetos\biblioteca_3d\characters\chr_001_anime_espadachim\working\rig_test_v007\rig_input_front.png'
+00:22.000  render           | Saved: 'C:\Users\fabio\Documents\projetos\biblioteca_3d\characters\chr_001_anime_espadachim\working\rig_test_v007\rig_input_side.png'
+00:30.344  render           | Saved: 'C:\Users\fabio\Documents\projetos\biblioteca_3d\characters\chr_001_anime_espadachim\working\rig_test_v007\rig_input_back.png'
+00:41.609  render           | Saved: 'C:\Users\fabio\Documents\projetos\biblioteca_3d\characters\chr_001_anime_espadachim\working\rig_test_v007\rig_input_head_front.png'
+00:53.266  render           | Saved: 'C:\Users\fabio\Documents\projetos\biblioteca_3d\characters\chr_001_anime_espadachim\working\rig_test_v007\rig_input_head_threequarter.png'
+01:01.703  render           | Saved: 'C:\Users\fabio\Documents\projetos\biblioteca_3d\characters\chr_001_anime_espadachim\working\rig_test_v007\rig_input_hand.png'
+{"meshes": 1, "polygons": 299000, "bounds_min": [-0.9711936712265015, -0.17196254432201385, -0.9999924898147583], "bounds_max": [0.9712226986885071, 0.17195101082324982, 1.0], "rigs": 0}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

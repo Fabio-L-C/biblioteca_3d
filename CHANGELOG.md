@@ -4,6 +4,32 @@ Histórico de alterações relevantes na estrutura, documentação e coleção d
 
 ## [Unreleased]
 
+### Animações reunidas v008 — 2026-11-13
+
+- Caminhada e corrida reunidas em um único GLB, com clipes nomeados para troca na galeria sem recarregar a malha. v006 detalhada e v007 separada preservadas.
+- Integração local preserva dados binários da geometria/textura, rig e samplers originais. Script reproduzível em scripts/merge_character_animations.mjs.
+- Arquivo Blender editável salvo em T-pose com ambas as ações. Blender importou os dois clipes; checagem numérica de 9 posições por clipe, coordenadas finitas e nenhum vértice sem peso. Sem validação em motor de jogo.
+- Sem créditos consumidos nesta revisão; acumulado permanece 175.
+
+### Rig e animações v007 — 2026-11-13
+
+- Após autorização explícita de envio, gerado rig Meshy com dedos (66 articulações) na cópia local de 299.000 triângulos. Caminhada e corrida incluídas; arquivos GLB/FBX originais preservados.
+- Exportação v007 com rig em T-pose e GLBs separados para cada movimento. v006 detalhada preservada como padrão.
+- Galeria com rótulos por arquivo, seleção de clipes e reprodução/pausa de animações.
+- Custo confirmado: 5 créditos; acumulado: 175; saldo: 1.015 (575 mensais + 440 permanentes). Teste em Blender 5.2; validação no motor de jogo e aprovação para produção pendentes.
+
+### Preparação local para rig — 2026-11-13
+
+- Preparada cópia separada da v006 com 299.000 triângulos, GLB com textura embutida, arquivo Blender e relatório. v006 mantida como padrão.
+- Envio e remesh pago bloqueados pela revisão automática antes da execução. Remesh substituído por preparação local; envio para rig de 5 créditos aguarda autorização explícita. Rig e deformações ainda pendentes; nenhum crédito consumido.
+
+### Correção local v006 — 2026-11-13
+
+- Removidos apêndices geométricos sob ambas as orelhas da v005; bordas fechadas e suavizadas no Blender 5.2. UV das novas superfícies ajustada com amostra de pele adjacente.
+- GLB v006 com 477.066 triângulos e textura N1 2K embutida; versão padrão da galeria para avaliação. Original, v005, arquivo editável, script e relatório preservados.
+- Geometria fora da região de reparo preservada na comparação a 1e-5; nenhuma borda aberta nova. Sem rig ou teste de deformações.
+- Nenhuma operação Meshy ou crédito consumido nesta revisão.
+
 ### v005 em T-pose
 
 - Quatro novas vistas individuais em T-pose salvas, revisadas e usadas na geometria e na textura. Prompts e procedência preservados.

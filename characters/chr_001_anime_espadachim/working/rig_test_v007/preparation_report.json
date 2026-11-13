@@ -1,0 +1,38 @@
+{
+  "source": "exports/v006/chr_001_anime_espadachim_v006.glb",
+  "tool": "Blender 5.2",
+  "method": "Local collapse decimation in separate copy; no new generation",
+  "source_triangles": 477066,
+  "triangles": 299000,
+  "vertices": 171907,
+  "target_triangles": 299000,
+  "under_rig_limit": true,
+  "rig": false,
+  "pose": "T-pose",
+  "height_uncalibrated": true,
+  "bounds_min": [
+    -0.9711936712265015,
+    -0.17196254432201385,
+    -0.9999924898147583
+  ],
+  "bounds_max": [
+    0.9712226986885071,
+    0.17195101082324982,
+    1
+  ],
+  "meshy_credits_consumed": 0,
+  "status": "prepared_locally_not_uploaded",
+  "pending": [
+    "Explicit approval to upload corrected derivative to Meshy and start rig (5 credits)",
+    "Rig and deformation tests"
+  ],
+  "validation": {
+    "glb_triangles": 299000,
+    "textures_embedded": true,
+    "visual_checked": [
+      "front",
+      "head_threequarter"
+    ],
+    "no_rig_created": true
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "source": "source/attempt_005/textured_n1.glb",
+  "method": "Local bisect and capped removal of bilateral ear appendages",
+  "cut_z": 0.781,
+  "roi": {
+    "abs_x": [
+      0.071,
+      0.105
+    ],
+    "y": [
+      -0.018,
+      0.025
+    ],
+    "z": [
+      0.745,
+      0.795
+    ]
+  },
+  "source_triangles": 477916,
+  "caps": 5,
+  "smoothing_passes": 6,
+  "uv_strategy": "Sample adjacent skin UV; never average across UV islands",
+  "remaining_new_boundary_edges": 0,
+  "polygons_after": 476240,
+  "export_triangles": 477066,
+  "validation": {
+    "outside_ear_region_geometry_removed": 0,
+    "outside_ear_region_geometry_added": 0,
+    "coordinate_comparison_precision": 0.00001,
+    "new_boundary_edges_after_repair": 0,
+    "texture_embedded": true,
+    "rig_tested": false,
+    "visual_review": [
+      "front",
+      "left_threequarter",
+      "right_threequarter",
+      "left_profile",
+      "right_profile"
+    ]
+  }
+}

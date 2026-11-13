@@ -7,7 +7,7 @@
   "concept": "Espadachim fictícia adulta de 28 anos, estilo anime, cabelo azul-escuro curto penteado para trás, olhos âmbar e orelhas expostos. Túnica creme, colete azul-marinho, calça escura, botas marrons e proteção leve nos antebraços. Sem arma nas mãos, pose A.",
   "status": "review",
   "created_at": "2026-11-12",
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-13",
   "provider": "Meshy",
   "interface": "local MCP 0.6.11",
   "model": "meshy-7.1",
@@ -428,6 +428,21 @@
             "references/t_pose_right_v001.png"
           ],
           "notes": "Quatro vistas em T-pose; N1 escolhido pela preferência visual do usuário. Sem prompt textual, sem PBR."
+        },
+        {
+          "type": "rigging",
+          "task_id": "01a1d4f8-3c0f-7109-96ba-c88ee312c183",
+          "status": "SUCCEEDED",
+          "estimated_credits": 5,
+          "actual_credits": 5,
+          "parameters": {
+            "height_meters": 1.7,
+            "include_fingers": true,
+            "skeleton_template": "meshyrig",
+            "local_model": "working/rig_test_v007/rig_input.glb"
+          },
+          "interface": "Meshy REST API; MCP transport fallback",
+          "notes": "Rig da cópia local derivada da v006, autorizado explicitamente pelo usuário; inclui dedos, caminhada e corrida. Sem nova geração de geometria."
         }
       ],
       "output_files": [
@@ -451,8 +466,8 @@
         "scale": "Não calibrada",
         "geometry_polygon_count": 477922
       },
-      "balance_after": 1020,
-      "actual_credits": 35
+      "balance_after": 1015,
+      "actual_credits": 40
     }
   ],
   "files": {
@@ -496,9 +511,38 @@
       "source/attempt_004/textured_n1_base_color.png",
       "source/attempt_005/geometry.glb",
       "source/attempt_005/textured_n1.glb",
-      "source/attempt_005/textured_n1_base_color.png"
+      "source/attempt_005/textured_n1_base_color.png",
+      "source/attempt_005/rig_v007/rigged.glb",
+      "source/attempt_005/rig_v007/rigged.fbx",
+      "source/attempt_005/rig_v007/walk.glb",
+      "source/attempt_005/rig_v007/run.glb"
     ],
-    "working": [],
+    "working": [
+      "working/ear_repair_v006/ear_repaired.blend",
+      "working/ear_repair_v006/repair_ears.py",
+      "working/ear_repair_v006/repair_report.json",
+      "working/ear_repair_v006/render_final.py",
+      "working/rig_test_v007/rig_input.glb",
+      "working/rig_test_v007/rig_input.blend",
+      "working/rig_test_v007/prepare_rig_input.py",
+      "working/rig_test_v007/preparation_report.json",
+      "working/rig_test_v007/proposed_rig.json",
+      "working/rig_test_v007/README.md",
+      "working/rig_test_v007/rig_input_back.png",
+      "working/rig_test_v007/rig_input_front.png",
+      "working/rig_test_v007/rig_input_hand.png",
+      "working/rig_test_v007/rig_input_head_front.png",
+      "working/rig_test_v007/rig_input_head_threequarter.png",
+      "working/rig_test_v007/rig_input_side.png",
+      "working/rig_test_v007/operations.json",
+      "working/rig_test_v007/rig_inspection.json",
+      "working/rig_test_v007/review_rig.py",
+      "working/rig_test_v007/review/deformation_report.json",
+      "working/animation_bundle_v008/chr_001_anime_espadachim_v008.blend",
+      "working/animation_bundle_v008/merge_report.json",
+      "working/animation_bundle_v008/blender_validation.json",
+      "working/animation_bundle_v008/validate_bundle.py"
+    ],
     "exports": [
       {
         "version": "v001",
@@ -564,9 +608,87 @@
         "paths": [
           "exports/v005/chr_001_anime_espadachim_v005.glb"
         ]
+      },
+      {
+        "version": "v006",
+        "label": "v006 · T-pose · orelhas corrigidas",
+        "source_attempt": "attempt_005",
+        "technical": {
+          "polygon_count": 477066,
+          "topology": "triangle",
+          "texture_resolution": "2048x2048 (PNG verificado)",
+          "texture_model": "meshy-n1",
+          "pose": "T-pose das referências; sem normalização",
+          "rig": false,
+          "scale": "Não calibrada",
+          "repair": "Remoção local de apêndices sob as orelhas, fechamento e suavização no Blender 5.2"
+        },
+        "paths": [
+          "exports/v006/chr_001_anime_espadachim_v006.glb"
+        ]
+      },
+      {
+        "version": "v007",
+        "source_attempt": "attempt_005",
+        "label": "v007 · Teste de rig",
+        "labels": {
+          "exports/v007/chr_001_anime_espadachim_v007.glb": "v007 · Rig com dedos · T-pose",
+          "exports/v007/chr_001_anime_espadachim_v007_walk.glb": "v007 · Caminhada",
+          "exports/v007/chr_001_anime_espadachim_v007_run.glb": "v007 · Corrida"
+        },
+        "technical": {
+          "polygon_count": 299000,
+          "topology": "triangle",
+          "texture_resolution": "2048x2048 embutida",
+          "texture_model": "meshy-n1",
+          "pose": "T-pose na versão com rig; caminhada e corrida nos arquivos correspondentes",
+          "rig": true,
+          "joint_count": 66,
+          "finger_bones": true,
+          "scale": "1,7 m verificados no Blender em T-pose",
+          "validation": "Blender 5.2: T-pose e duas poses por ciclo de caminhada/corrida; sem validação em motor de jogo"
+        },
+        "paths": [
+          "exports/v007/chr_001_anime_espadachim_v007.glb",
+          "exports/v007/chr_001_anime_espadachim_v007_walk.glb",
+          "exports/v007/chr_001_anime_espadachim_v007_run.glb"
+        ]
+      },
+      {
+        "version": "v008",
+        "source_attempt": "attempt_005",
+        "label": "v008 · Rig · Caminhada + Corrida",
+        "technical": {
+          "polygon_count": 299000,
+          "topology": "triangle",
+          "texture_resolution": "2048x2048 embutida",
+          "texture_model": "meshy-n1",
+          "pose": "T-pose na versão com rig; caminhada e corrida nos arquivos correspondentes",
+          "rig": true,
+          "joint_count": 66,
+          "finger_bones": true,
+          "scale": "1,7 m verificados no Blender em T-pose",
+          "validation": "Blender 5.2: dois clipes importados; 9 amostras numéricas por clipe, coordenadas finitas e nenhum vértice sem peso. Dados de animação idênticos à v007. Sem teste no motor de jogo.",
+          "animations": [
+            "Caminhada",
+            "Corrida"
+          ]
+        },
+        "paths": [
+          "exports/v008/chr_001_anime_espadachim_v008.glb"
+        ]
       }
     ],
     "previews": [
+      "previews/textured_v006_front.png",
+      "previews/textured_v006_back.png",
+      "previews/textured_v006_ear_left.png",
+      "previews/textured_v006_ear_right.png",
+      "previews/textured_v006_hand.png",
+      "previews/textured_v006_head_front.png",
+      "previews/textured_v006_head_left.png",
+      "previews/textured_v006_head_threequarter.png",
+      "previews/textured_v006_side.png",
       "previews/textured_v005_front.png",
       "previews/geometry_v005_back.png",
       "previews/geometry_v005_front.png",
@@ -620,17 +742,23 @@
       "previews/geometry_v001_back.png",
       "previews/textured_v001_front.png",
       "previews/textured_v001_side.png",
-      "previews/textured_v001_back.png"
+      "previews/textured_v001_back.png",
+      "previews/rig_v007_rigged_0.png",
+      "previews/rig_v007_walk_0.png",
+      "previews/rig_v007_walk_1.png",
+      "previews/rig_v007_run_0.png",
+      "previews/rig_v007_run_1.png"
     ]
   },
   "technical": {
-    "polygon_count": 477916,
+    "polygon_count": 477066,
     "topology": "triangle",
     "texture_resolution": "2048x2048 (PNG verificado)",
     "texture_model": "meshy-n1",
     "pose": "T-pose das referências; sem normalização",
     "rig": false,
-    "scale": "Não calibrada"
+    "scale": "Não calibrada",
+    "repair": "Remoção local de apêndices sob as orelhas, fechamento e suavização no Blender 5.2"
   },
   "provenance": {
     "references": [
@@ -788,7 +916,10 @@
     "Usuário reprovou v002 e definiu quatro vistas e prioridade absoluta de qualidade sobre economia de créditos. Próxima tentativa: integração atualizada, geometria Meshy 7.1 Ultra 2K sem remesh e quatro referências consistentes; texturas escolhidas por qualidade observada.",
     "Quatro vistas e Ultra 2K sem pose_mode preservaram mão aberta e cinco dedos separados na inspeção. Comparação de textura: Meshy 7 8K PBR tem olhos/materiais mais detalhados, mas irregularidades nas sobrancelhas e cabelo/pele; N1 tem cor mais limpa e menos costuras, porém olhos suavizados. Ambas preservadas para avaliação; nenhuma aprovada pelo usuário, sem rig/deformação ou otimização para jogo.",
     "Usuário preferiu visualmente a v004 (textura Meshy N1) à v003 (Meshy 7 8K PBR). Definida como versão padrão da galeria. Preferência visual não implica validação de rig, deformações ou aprovação para produção.",
-    "v005: diagnóstico corrigido após imagens do usuário. Há prolongamentos geométricos indevidos sob ambas as orelhas, semelhantes a lóbulos duplicados ou apêndices. Não é apenas coloração da textura; a origem exata do erro de reconstrução ainda não foi isolada. Requer correção da malha e, se necessário, ajuste de UV/textura. T-pose e dedos separados preservados; olhos/mãos suavizados. Sem rig ou teste de deformações."
+    "v005: diagnóstico corrigido após imagens do usuário. Há prolongamentos geométricos indevidos sob ambas as orelhas, semelhantes a lóbulos duplicados ou apêndices. Não é apenas coloração da textura; a origem exata do erro de reconstrução ainda não foi isolada. Requer correção da malha e, se necessário, ajuste de UV/textura. T-pose e dedos separados preservados; olhos/mãos suavizados. Sem rig ou teste de deformações.",
+    "v006: correção local no Blender 5.2 a partir da v005, com remoção bilateral dos apêndices, fechamento e suavização das bordas e UV de pele nas novas superfícies. Sem novas bordas abertas; geometria fora das orelhas preservada a 1e-5. Originais mantidos. Sem novo consumo Meshy. Rig e deformações não testados; avaliação visual do usuário pendente.",
+    "v007: rig Meshy com 66 articulações e dedos, aplicado à cópia de 299.000 triângulos. Blender 5.2 abriu T-pose e duas amostras por ciclo de caminhada/corrida; nenhuma coordenada inválida ou vértice do personagem sem pesos. Movimentos funcionam nas poses inspecionadas. Túnica e bolsa seguem pesos da malha; sem simulação de tecido, teste facial, teste detalhado de dedos ou validação no motor de jogo. v006 detalhada permanece padrão; v007 experimental em avaliação.",
+    "v008: caminhada e corrida reunidas em um GLB, com escolha de clipe na galeria sem recarregar a malha. Rig, geometria, textura e dados dos clipes preservados em relação à v007. Blender 5.2 importou ambos; 9 amostras numéricas por clipe sem coordenadas inválidas ou vértices sem peso. Arquivo .blend editável salvo em T-pose, com ações preservadas. v006 detalhada permanece padrão e validação no motor de jogo continua pendente. Sem consumo Meshy nesta revisão."
   ],
   "file_technical": {
     "source/attempt_004/textured.glb": {
@@ -854,12 +985,180 @@
       "pose": "T-pose das referências; sem normalização",
       "rig": false,
       "scale": "Não calibrada"
+    },
+    "source/attempt_005/rig_v007/rigged.glb": {
+      "polygon_count": 299000,
+      "topology": "triangle",
+      "texture_resolution": "2048x2048 embutida",
+      "texture_model": "meshy-n1",
+      "pose": "T-pose na versão com rig; caminhada e corrida nos arquivos correspondentes",
+      "rig": true,
+      "joint_count": 66,
+      "finger_bones": true,
+      "scale": "1,7 m verificados no Blender em T-pose",
+      "validation": "Blender 5.2: T-pose e duas poses por ciclo de caminhada/corrida; sem validação em motor de jogo"
+    },
+    "source/attempt_005/rig_v007/walk.glb": {
+      "polygon_count": 299000,
+      "topology": "triangle",
+      "texture_resolution": "2048x2048 embutida",
+      "texture_model": "meshy-n1",
+      "pose": "T-pose na versão com rig; caminhada e corrida nos arquivos correspondentes",
+      "rig": true,
+      "joint_count": 66,
+      "finger_bones": true,
+      "scale": "1,7 m verificados no Blender em T-pose",
+      "validation": "Blender 5.2: T-pose e duas poses por ciclo de caminhada/corrida; sem validação em motor de jogo"
+    },
+    "source/attempt_005/rig_v007/run.glb": {
+      "polygon_count": 299000,
+      "topology": "triangle",
+      "texture_resolution": "2048x2048 embutida",
+      "texture_model": "meshy-n1",
+      "pose": "T-pose na versão com rig; caminhada e corrida nos arquivos correspondentes",
+      "rig": true,
+      "joint_count": 66,
+      "finger_bones": true,
+      "scale": "1,7 m verificados no Blender em T-pose",
+      "validation": "Blender 5.2: T-pose e duas poses por ciclo de caminhada/corrida; sem validação em motor de jogo"
+    },
+    "exports/v007/chr_001_anime_espadachim_v007.glb": {
+      "polygon_count": 299000,
+      "topology": "triangle",
+      "texture_resolution": "2048x2048 embutida",
+      "texture_model": "meshy-n1",
+      "pose": "T-pose na versão com rig; caminhada e corrida nos arquivos correspondentes",
+      "rig": true,
+      "joint_count": 66,
+      "finger_bones": true,
+      "scale": "1,7 m verificados no Blender em T-pose",
+      "validation": "Blender 5.2: T-pose e duas poses por ciclo de caminhada/corrida; sem validação em motor de jogo"
+    },
+    "exports/v007/chr_001_anime_espadachim_v007_walk.glb": {
+      "polygon_count": 299000,
+      "topology": "triangle",
+      "texture_resolution": "2048x2048 embutida",
+      "texture_model": "meshy-n1",
+      "pose": "T-pose na versão com rig; caminhada e corrida nos arquivos correspondentes",
+      "rig": true,
+      "joint_count": 66,
+      "finger_bones": true,
+      "scale": "1,7 m verificados no Blender em T-pose",
+      "validation": "Blender 5.2: T-pose e duas poses por ciclo de caminhada/corrida; sem validação em motor de jogo"
+    },
+    "exports/v007/chr_001_anime_espadachim_v007_run.glb": {
+      "polygon_count": 299000,
+      "topology": "triangle",
+      "texture_resolution": "2048x2048 embutida",
+      "texture_model": "meshy-n1",
+      "pose": "T-pose na versão com rig; caminhada e corrida nos arquivos correspondentes",
+      "rig": true,
+      "joint_count": 66,
+      "finger_bones": true,
+      "scale": "1,7 m verificados no Blender em T-pose",
+      "validation": "Blender 5.2: T-pose e duas poses por ciclo de caminhada/corrida; sem validação em motor de jogo"
+    },
+    "exports/v008/chr_001_anime_espadachim_v008.glb": {
+      "polygon_count": 299000,
+      "topology": "triangle",
+      "texture_resolution": "2048x2048 embutida",
+      "texture_model": "meshy-n1",
+      "pose": "T-pose na versão com rig; caminhada e corrida nos arquivos correspondentes",
+      "rig": true,
+      "joint_count": 66,
+      "finger_bones": true,
+      "scale": "1,7 m verificados no Blender em T-pose",
+      "validation": "Blender 5.2: dois clipes importados; 9 amostras numéricas por clipe, coordenadas finitas e nenhum vértice sem peso. Dados de animação idênticos à v007. Sem teste no motor de jogo.",
+      "animations": [
+        "Caminhada",
+        "Corrida"
+      ]
     }
   },
-  "preferred_export": "v005",
+  "preferred_export": "v006",
   "texture_preference": {
     "model": "meshy-n1",
     "basis": "Preferência explícita do usuário pela v004 em comparação com v003.",
     "scope": "Este personagem; referência para futuras comparações em personagens anime semelhantes, sem presumir melhor resultado em todos os estilos."
-  }
+  },
+  "revisions": [
+    {
+      "version": "v006",
+      "created_at": "2026-11-13",
+      "source_attempt": "attempt_005",
+      "source_version": "v005",
+      "tool": "Blender 5.2",
+      "method": "local_mesh_repair",
+      "actual_credits": 0,
+      "notes": [
+        "Removidos prolongamentos geométricos sob ambas as orelhas; cortes fechados e suavizados localmente.",
+        "UV das tampas usa amostra de pele adjacente, preservando a imagem N1 2K.",
+        "Sem remesh global; geometria fora da região de reparo preservada na comparação a 1e-5.",
+        "Nenhuma borda aberta nova; teste de rig e deformações permanece pendente."
+      ],
+      "report": "working/ear_repair_v006/repair_report.json",
+      "paths": [
+        "exports/v006/chr_001_anime_espadachim_v006.glb"
+      ]
+    },
+    {
+      "version": "v007",
+      "source_version": "v006",
+      "source_attempt": "attempt_005",
+      "created_at": "2026-11-13",
+      "method": "local_decimation_and_meshy_rig",
+      "actual_credits": 5,
+      "task_id": "01a1d4f8-3c0f-7109-96ba-c88ee312c183",
+      "report": "working/rig_test_v007/rig_inspection.json",
+      "paths": [
+        "exports/v007/chr_001_anime_espadachim_v007.glb",
+        "exports/v007/chr_001_anime_espadachim_v007_walk.glb",
+        "exports/v007/chr_001_anime_espadachim_v007_run.glb"
+      ]
+    },
+    {
+      "version": "v008",
+      "created_at": "2026-11-13",
+      "source_version": "v007",
+      "source_attempt": "attempt_005",
+      "method": "local_animation_bundle",
+      "actual_credits": 0,
+      "paths": [
+        "exports/v008/chr_001_anime_espadachim_v008.glb"
+      ],
+      "report": "working/animation_bundle_v008/merge_report.json"
+    }
+  ],
+  "rig_preparation": {
+    "source_version": "v006",
+    "status": "review",
+    "model": "working/rig_test_v007/rig_input.glb",
+    "triangles": 299000,
+    "proposed_operation": "meshy_rig",
+    "estimated_credits": 5,
+    "actual_credits": 5,
+    "rig_created": true,
+    "manifest": "working/rig_test_v007/proposed_rig.json",
+    "task_id": "01a1d4f8-3c0f-7109-96ba-c88ee312c183",
+    "parameters": {
+      "height_meters": 1.7,
+      "include_fingers": true,
+      "skeleton_template": "meshyrig",
+      "local_model": "working/rig_test_v007/rig_input.glb"
+    },
+    "outputs": [
+      "exports/v007/chr_001_anime_espadachim_v007.glb",
+      "exports/v007/chr_001_anime_espadachim_v007_walk.glb",
+      "exports/v007/chr_001_anime_espadachim_v007_run.glb"
+    ],
+    "validation": {
+      "tool": "Blender 5.2",
+      "pose_samples_per_clip": 2,
+      "unweighted_vertices": 0,
+      "report": "working/rig_test_v007/review/deformation_report.json",
+      "engine_tested": false,
+      "joint_count": 66
+    }
+  },
+  "preferred_animated_export": "v008"
 }

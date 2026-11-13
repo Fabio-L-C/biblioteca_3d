@@ -1,0 +1,18 @@
+import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
+const [basePath,outPath,...clips]=process.argv.slice(2);
+if(!basePath||!outPath||!clips.length)throw Error('Usage: node merge_character_animations.mjs base.glb output.glb Name=file.glb ...');
+function parse(b){if(b.readUInt32LE(0)!==0x46546c67||b.readUInt32LE(4)!==2)throw Error('Expected GLB 2');const n=b.readUInt32LE(12);return{json:JSON.parse(b.subarray(20,20+n).toString('utf8')),bin:b.subarray(28+n)};}
+const original=await fs.readFile(basePath),base=parse(original),j=structuredClone(base.json);
+const chunks=[base.bin.subarray(0,j.buffers[0].byteLength)];let length=chunks[0].length;
+const nodes=new Map(j.nodes.map((n,i)=>[n.name,i]));if(nodes.size!==j.nodes.length)throw Error('Node names must be unique');
+j.animations=[];const report={source:basePath,output:outPath,geometry_binary_preserved:true,clips:[],credits_consumed:0};
+for(const spec of clips){const split=spec.indexOf('=');const name=spec.slice(0,split),path=spec.slice(split+1);if(split<1)throw Error('Expected Name=file.glb');const source=parse(await fs.readFile(path)),s=source.json;
+ if(s.buffers.length!==1)throw Error('Only embedded single-buffer GLB supported');
+ const accessorMap=new Map(),viewMap=new Map();
+ function view(id){if(viewMap.has(id))return viewMap.get(id);const v=s.bufferViews[id];if(v.buffer!==0)throw Error('External buffer');const pad=(4-length%4)%4;if(pad){chunks.push(Buffer.alloc(pad));length+=pad;}const data=source.bin.subarray(v.byteOffset||0,(v.byteOffset||0)+v.byteLength);const target=j.bufferViews.length;j.bufferViews.push({...v,buffer:0,byteOffset:length});chunks.push(data);length+=data.length;viewMap.set(id,target);return target;}
+ function accessor(id){if(accessorMap.has(id))return accessorMap.get(id);const a=s.accessors[id];if(a.sparse||a.bufferView===undefined)throw Error('Sparse accessor unsupported');const target=j.accessors.length;j.accessors.push({...a,bufferView:view(a.bufferView)});accessorMap.set(id,target);return target;}
+ for(const anim of s.animations||[]){const a=structuredClone(anim);a.name=name;a.samplers=a.samplers.map(x=>({...x,input:accessor(x.input),output:accessor(x.output)}));a.channels=a.channels.map(c=>{const node=s.nodes[c.target.node],id=nodes.get(node.name);if(id===undefined)throw Error('Missing bone '+node.name);const srcChildren=(node.children||[]).map(i=>s.nodes[i].name).sort(),dstChildren=(j.nodes[id].children||[]).map(i=>j.nodes[i].name).sort();if(JSON.stringify(srcChildren)!==JSON.stringify(dstChildren))throw Error('Skeleton hierarchy mismatch: '+node.name);return{...c,target:{...c.target,node:id}};});j.animations.push(a);report.clips.push({name,source:path,channels:a.channels.length,samplers:a.samplers.length});}
+}
+j.buffers=[{byteLength:length}];const payload=Buffer.concat(chunks),pad=(4-payload.length%4)%4,bin=Buffer.concat([payload,Buffer.alloc(pad)]);let json=Buffer.from(JSON.stringify(j),'utf8');json=Buffer.concat([json,Buffer.alloc((4-json.length%4)%4,32)]);const result=Buffer.alloc(12+8+json.length+8+bin.length);result.writeUInt32LE(0x46546c67,0);result.writeUInt32LE(2,4);result.writeUInt32LE(result.length,8);result.writeUInt32LE(json.length,12);result.writeUInt32LE(0x4e4f534a,16);json.copy(result,20);const offset=20+json.length;result.writeUInt32LE(bin.length,offset);result.writeUInt32LE(0x004e4942,offset+4);bin.copy(result,offset+8);
+await fs.writeFile(outPath,result,{flag:'wx'});report.source_sha256=crypto.createHash('sha256').update(original).digest('hex');report.output_sha256=crypto.createHash('sha256').update(result).digest('hex');report.bytes=result.length;await fs.writeFile(outPath+'.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

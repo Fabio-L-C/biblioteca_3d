@@ -22,7 +22,8 @@ Abrir index.html diretamente por file:// não permite buscar o catálogo e os mo
 
 - Catálogo com busca por nome, estilo, função e ID, além de filtros de estilo e estado.
 - Um visualizador 3D ativo por vez, com rotação por arraste, zoom, posições de frente/lateral/costas, reenquadramento, rotação automática, fundo claro/escuro e tela cheia.
-- Seletor de versões exportadas e dos GLBs originais.
+- Seletor de versões exportadas e dos GLBs originais, com rótulos por arquivo de animação.
+- Seleção de clipes e reprodução/pausa para GLBs animados; modelos estáticos ocultam esses controles.
 - Download do arquivo selecionado, dados técnicos e nota de avaliação mais recente.
 - Referências de criação ampliáveis, com suporte a fechamento por Escape.
 - Estados para catálogo vazio, falha de ficha, ausência de modelo e erro de carregamento.
@@ -54,3 +55,7 @@ Não requer instalação npm nem compilação. Os arquivos atuais funcionam com 
 Sintaxe do JavaScript e Python verificada. Servidor testado com HTML, CSS, JavaScript, biblioteca, catálogo, GLB e PNG reais. Os arquivos internos fora das rotas da galeria foram recusados. A prévia automatizada no navegador não pôde iniciar nesta sessão; renderização WebGL e interação visual ainda precisam de conferência no navegador do usuário.
 
 Documentação da biblioteca: https://modelviewer.dev/docs/
+
+## Modelo com vários movimentos
+
+Na espadachim, selecione **v008 · Rig · Caminhada + Corrida** em VERSÃO. Use ANIMAÇÃO para alternar Caminhada/Corrida sem recarregar o GLB. Reproduzir/Pausar controla o clipe atual; ao trocar, ele reinicia. A v006 detalhada continua como padrão, e os arquivos separados da v007 continuam disponíveis.

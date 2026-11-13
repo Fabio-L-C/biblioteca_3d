@@ -19,10 +19,11 @@ A estimativa registrada para Meshy 7 com textura é de 35 créditos por tentativ
 
 ## Registro de consumo
 
-Consumo confirmado do projeto: 170 créditos. Saldo final consultado em 2026-11-12: 1.020 créditos, sendo 580 mensais e 440 permanentes. Estes registros não representam o histórico completo da conta.
+Consumo confirmado do projeto: 175 créditos. Saldo final consultado em 2026-11-13: 1.015 créditos, sendo 575 mensais e 440 permanentes. Estes registros não representam o histórico completo da conta.
 
 | Data | Personagem | Tentativa | Operação / ID da tarefa | Estimativa | Custo efetivo | Fonte / situação |
 | --- | --- | --- | --- | ---: | ---: | --- |
+| 2026-11-13 | chr_001_anime_espadachim | attempt_005 / v007 | Rig com dedos, caminhada e corrida / 01a1d4f8-3c0f-7109-96ba-c88ee312c183 | 5 | 5 | SUCCEEDED; autorização explícita; cópia local da v006 |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_005 | Geometria T-pose Ultra 2K / 01a1d128-a795-759e-b047-b971b4e154f0 | 25 | 25 | SUCCEEDED; tarefa existente retomada |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_005 | Textura N1 T-pose / 01a1d138-9fc4-755d-8dd3-ca60d8d14e00 | 10 | 10 | SUCCEEDED; quatro referências |
 | 2026-11-12 | chr_001_anime_espadachim | attempt_004 | Textura N1 comparativa / 01a1d114-742f-75dc-abd0-1e4eef179b54 | 10 | 10 | SUCCEEDED; confirmado pela API |
@@ -63,3 +64,7 @@ Comparação geométrica: 25 + 25 créditos. Texturas: 15 (Meshy 7 8K PBR) + 10 
 ## T-pose — 2026-11-12
 
 Tarefa geométrica existente retomada sem recriação. Geometria: 25 créditos; textura N1: 10. Total da tentativa 005: 35; acumulado: 170. Saldo consultado: 1.020 (580 mensais e 440 permanentes). Próximo reset: 2026-11-24T11:54:46Z.
+
+## Rig v007 — 2026-11-13
+
+Rig com dedos: 5 créditos. Caminhada e corrida incluídas. Redução local no Blender: sem custo Meshy. Acumulado: 175. Saldo: 1.015 (575 mensais + 440 permanentes); próximo reset retornado: 2026-11-24T11:54:46.000Z.
